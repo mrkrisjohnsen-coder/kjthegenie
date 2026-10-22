@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Half Rooted · Colombian Kitchen · Sample site by KJ the Genie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Outfit:wght@400;600;800&display=swap">
+<style>
+  :root { --green: #048a2c; --deep: #0b3d1e; --yellow: #ffcd00; --blue: #003893; --red: #ce1126; --cream: #fffaf0; --ink: #16231b; --mute: #5c6b61; --line: #e8e1cf; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Outfit", system-ui, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.5; }
+  a { color: inherit; }
+  .sample { background: #1b0f3f; color: #ffc83d; text-align: center; font-size: 13px; font-weight: 800; padding: 7px 12px; }
+  .stripe { height: 6px; background: linear-gradient(90deg, var(--yellow) 0 50%, var(--blue) 50% 75%, var(--red) 75%); }
+  nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,250,240,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .logo { font-family: "Fraunces", serif; font-weight: 900; font-size: 22px; color: var(--green); letter-spacing: -.01em; }
+  .logo small { display: block; font-family: "Outfit"; font-size: 11px; letter-spacing: .18em; color: var(--mute); font-weight: 800; text-transform: uppercase; margin-top: -2px; }
+  .pill { padding: 10px 16px; border-radius: 999px; background: var(--green); color: #fff; font-weight: 800; font-size: 14px; text-decoration: none; }
+  .hero { position: relative; min-height: 76vh; display: flex; align-items: flex-end; padding: 26px 18px 32px; color: #fff;
+          background: linear-gradient(to top, rgba(6,30,14,.95) 10%, rgba(6,30,14,.25) 60%, rgba(6,30,14,.45)),
+          url("https://cdn.spotapps.co/spothopper/image/fetch/f_auto,q_auto:good,c_fit,w_1600/http://static.spotapps.co/spots/84/4c8b896a58476fa3102de70800a902/:original") center/cover; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.25); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #999; }
+  .dot.on { background: #4cd964; box-shadow: 0 0 10px #4cd964; }
+  h1 { font-family: "Fraunces", serif; font-weight: 900; font-size: clamp(42px, 11vw, 76px); line-height: .98; margin: 14px 0 10px; letter-spacing: -.02em; }
+  h1 span { color: var(--yellow); }
+  .hero p { font-size: 19px; margin: 0 0 20px; max-width: 32ch; color: #eef6ef; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { flex: 1 1 140px; text-align: center; padding: 15px 18px; border-radius: 14px; font-weight: 800; text-decoration: none; font-size: 17px; }
+  .btn.go { background: var(--yellow); color: var(--deep); }
+  .btn.green { background: var(--green); color: #fff; }
+  .btn.ghost { border: 2px solid #fff; color: #fff; }
+  section { padding: 46px 18px; max-width: 1000px; margin: 0 auto; }
+  h2 { font-family: "Fraunces", serif; font-weight: 900; font-size: 34px; margin: 0 0 4px; color: var(--deep); letter-spacing: -.01em; }
+  .sub { color: var(--mute); margin: 0 0 22px; }
+  .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .why div { padding: 18px; border-radius: 18px; background: #fff; border: 1px solid var(--line); }
+  .why b { display: block; font-size: 28px; }
+  .why span { font-weight: 800; }
+  .why small { display: block; color: var(--mute); }
+  .tabs { display: flex; gap: 8px; overflow-x: auto; margin: 0 -18px 14px; padding: 0 18px 4px; scrollbar-width: none; }
+  .tabs button { flex: 0 0 auto; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: 800 15px "Outfit"; }
+  .tabs button.on { background: var(--green); color: #fff; border-color: var(--green); }
+  .menu { display: none; gap: 10px; }
+  .menu.on { display: grid; }
+  @media (min-width: 760px) { .menu.on { grid-template-columns: 1fr 1fr; } }
+  .item { display: flex; justify-content: space-between; gap: 14px; padding: 14px 16px; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+  .item b { font-size: 17px; }
+  .item small { display: block; color: var(--mute); font-size: 14px; }
+  .item .p { color: var(--green); font-weight: 800; font-size: 17px; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; margin-bottom: 3px; }
+  .tag.pop { background: var(--yellow); color: var(--deep); }
+  .tag.veg { background: #dff3e4; color: var(--green); }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+  .gallery img:first-child { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
+  @media (min-width: 700px) { .gallery img:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: 1; } }
+  @media (min-width: 700px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .order { display: grid; gap: 10px; }
+  @media (min-width: 700px) { .order { grid-template-columns: repeat(3, 1fr); } }
+  .order a { display: block; padding: 16px; border-radius: 16px; background: #fff; border: 1px solid var(--line); text-decoration: none; font-weight: 800; }
+  .order a small { display: block; font-weight: 400; color: var(--mute); }
+  .quote { padding: 18px; border-radius: 16px; background: #fff; border-left: 5px solid var(--yellow); margin-bottom: 12px; }
+  .quote p { margin: 0 0 6px; font-size: 17px; }
+  .quote small { color: var(--mute); }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 11px 4px; border-bottom: 1px solid var(--line); font-size: 17px; }
+  td:last-child { text-align: right; font-weight: 800; }
+  tr.today td { color: var(--green); }
+  .map { width: 100%; height: 260px; border: 0; border-radius: 16px; margin-top: 14px; }
+  .socials { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+  .socials a { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: #111; font-weight: 800; text-decoration: none; font-size: 15px; }
+  .socials img { width: 22px; height: 22px; }
+  .dark { background: var(--deep); color: #fff; max-width: none; }
+  .dark > div { max-width: 1000px; margin: 0 auto; }
+  .dark h2 { color: var(--yellow); }
+  .dark .sub { color: #cfe3d4; }
+  footer { text-align: center; padding: 30px 18px 92px; color: var(--mute); font-size: 14px; border-top: 1px solid var(--line); }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 8px; padding: 10px; background: rgba(255,250,240,.97); border-top: 1px solid var(--line); z-index: 6; }
+  .bar a { flex: 1; text-align: center; padding: 13px 6px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 15px; }
+  @media (min-width: 900px) { .bar { display: none; } footer { padding-bottom: 30px; } }
+</style>
+</head>
+<body>
+  <div class="sample">✨ Sample website made by <a href="https://kjthegenie.mooo.com" style="color:#ffc83d">KJ the Genie</a> for Half Rooted. Not the official site.</div>
+  <div class="stripe"></div>
+  <nav>
+    <div class="logo">Half Rooted<small>Colombian Kitchen</small></div>
+    <a class="pill" href="https://order.toasttab.com/online/halfrooted" target="_blank" rel="noopener">Order online</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="badges">
+        <span class="badge"><span class="dot" id="dot"></span><span id="status">Checking hours…</span></span>
+        <span class="badge">⭐ 4.8 · 240 Google reviews</span>
+      </div>
+      <h1>Colombian flavor,<br><span>Greenville roots.</span></h1>
+      <p>Arepas, patacones, Colombian burgers and big, colorful bowls, with vegan options for everything. Latino-owned on Wade Hampton.</p>
+      <div class="ctas">
+        <a class="btn go" href="https://order.toasttab.com/online/halfrooted" target="_blank" rel="noopener">🛍️ Order online</a>
+        <a class="btn ghost" href="#menu">See the menu</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why people love it</h2>
+    <p class="sub">Bright, clean, friendly, and full of flavor.</p>
+    <div class="why">
+      <div><b>🫓</b><span>Real Colombian food</span><small>Arepas, patacon, empanadas</small></div>
+      <div><b>🌱</b><span>Vegan options</span><small>Cashew mushroom, black bean burger</small></div>
+      <div><b>🍔</b><span>The Colombian Burger</span><small>The one everybody orders</small></div>
+      <div><b>🎉</b><span>Catering + parties</span><small>Bring the flavor to your event</small></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>Menu</h2>
+    <p class="sub">Dine in, take out, or order for delivery. $10–20 per person.</p>
+    <div class="tabs">
+      <button class="on" data-t="m-entrees">Entrées</button>
+      <button data-t="m-bowls">Bowls</button>
+      <button data-t="m-sides">Sides</button>
+      <button data-t="m-kids">Kids</button>
+    </div>
+    <div class="menu on" id="m-entrees">
+      <div class="item"><div><span class="tag pop">Popular</span><b>Colombian Burger</b><small>Beef patty, cheddar, bacon bits, pineapple habanero jam, aji, salsa rosada, pineapple slaw and crushed chips</small></div><div class="p">$12.95</div></div>
+      <div class="item"><div><span class="tag veg">Vegan</span><b>Black Bean Burger</b><small>Black bean quinoa patty, vegan cheddar, soy bacon bits, pineapple habanero jam and all the fixings</small></div><div class="p">$12.95</div></div>
+      <div class="item"><div><b>Arepa</b><small>Fried corn cake, pineapple habanero jam, aji, slaw, salsa rosada, queso fresco. Beef, chicken or cashew mushroom</small></div><div class="p">$9.00</div></div>
+      <div class="item"><div><b>Arepa de Choclo</b><small>Grilled sweet corn cake, butter and queso fresco</small></div><div class="p">$7.00</div></div>
+      <div class="item"><div><b>Patacon</b><small>Fried green plantain, pineapple habanero jam, aji, slaw, salsa rosada, queso fresco</small></div><div class="p">$11.95</div></div>
+      <div class="item"><div><b>Colombian Hot Dog</b><small>Fried beef hot dog, cheddar, bacon bits, pineapple habanero jam, slaw, salsa rosada, crushed chips</small></div><div class="p">$9.50</div></div>
+      <div class="item"><div><b>Empanada Trio</b><small>Three fried turnovers stuffed with potatoes</small></div><div class="p">$9.25</div></div>
+      <div class="item"><div><b>Salchipapa</b></div><div class="p">$12.00</div></div>
+      <div class="item"><div><b>Picada</b><small>Made for sharing</small></div><div class="p">$30.00</div></div>
+      <div class="item"><div><span class="tag pop">Combo</span><b>Colombian Burger Combo</b></div><div class="p">$16.00</div></div>
+    </div>
+    <div class="menu" id="m-bowls">
+      <div class="item"><div><span class="tag pop">Popular</span><b>Mini Paisa Bowl</b></div><div class="p">$15.95</div></div>
+      <div class="item"><div><b>Fiesta Bowl</b></div><div class="p">$13.95</div></div>
+      <div class="item"><div><b>Southwest Salad</b></div><div class="p">$12.95</div></div>
+    </div>
+    <div class="menu" id="m-sides">
+      <div class="item"><div><b>Yuca</b><small>Served with aji</small></div><div class="p">$3.95</div></div>
+      <div class="item"><div><b>Tostones</b><small>Served with garlic aioli</small></div><div class="p">$3.95</div></div>
+      <div class="item"><div><b>Sweet Plantains</b></div><div class="p">$3.95</div></div>
+      <div class="item"><div><b>Fries</b><small>Served with salsa rosada</small></div><div class="p">$3.95</div></div>
+      <div class="item"><div><b>Rice</b></div><div class="p">$3.95</div></div>
+      <div class="item"><div><b>Pinto Beans</b></div><div class="p">$3.95</div></div>
+    </div>
+    <div class="menu" id="m-kids">
+      <div class="item"><div><b>Kids Cheeseburger</b></div><div class="p">$5.00</div></div>
+      <div class="item"><div><b>Kids Hot Dog</b></div><div class="p">$5.00</div></div>
+      <div class="item"><div><b>Kids Rice and Chicken Bowl</b></div><div class="p">$8.95</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>From our kitchen</h2>
+    <p class="sub">Every plate is a party.</p>
+    <div class="gallery">
+      <img src="https://cdn.spotapps.co/spothopper/image/fetch/f_auto,q_auto:good,c_fit,w_700/http://static.spotapps.co/spots/11/f9789a8c5f42b6af58aff87dc11b16/:original" alt="Arepas" loading="lazy">
+      <img src="https://cdn.spotapps.co/spothopper/image/fetch/f_auto,q_auto:good,c_fit,w_700/http://static.spotapps.co/spots/3b/4bad2fec904131ab216610d8fdd3e3/:original" alt="Patacon" loading="lazy">
+      <img src="https://cdn.spotapps.co/spothopper/image/fetch/f_auto,q_auto:good,c_fit,w_700/http://static.spotapps.co/spots/42/b440d47656491eafc9ee77498e5cc4/:original" alt="Paisa bowl" loading="lazy">
+      <img src="https://cdn.spotapps.co/spothopper/image/fetch/f_auto,q_auto:good,c_fit,w_700/http://static.spotapps.co/spots/8a/1b0e70318545ad88b1c53a1db7245e/:original" alt="Fiesta bowl" loading="lazy">
+      <img src="https://cdn.spotapps.co/spothopper/image/fetch/f_auto,q_auto:good,c_fit,w_700/http://static.spotapps.co/spots/91/9464c34f094a5ead7fbabd349371f8/:original" alt="Yuca fries" loading="lazy">
+    </div>
+  </section>
+
+  <section class="dark">
+    <div>
+      <h2>Order your way</h2>
+      <p class="sub">Pick it up, have it delivered, or book a table.</p>
+      <div class="order">
+        <a class="btn go" href="https://order.toasttab.com/online/halfrooted" target="_blank" rel="noopener">🛍️ Order pickup<small style="color:var(--deep)">Straight from our kitchen</small></a>
+        <a class="btn ghost" href="https://www.ubereats.com/store/half-rooted/9092Xl4tW8SWyWZV_IBKPw" target="_blank" rel="noopener">🚗 Uber Eats<small style="color:#cfe3d4">Delivery</small></a>
+        <a class="btn ghost" href="https://www.grubhub.com/restaurant/half-rooted-hampton-blvd-1419-wade-hampton-blvd-greenville/12160632" target="_blank" rel="noopener">🛵 Grubhub<small style="color:#cfe3d4">Delivery</small></a>
+      </div>
+      <div class="ctas" style="margin-top:12px">
+        <a class="btn green" href="tel:+18642032102">📞 Call (864) 203-2102</a>
+        <a class="btn ghost" href="https://order.toasttab.com/egiftcards/halfrooted" target="_blank" rel="noopener">🎁 Gift cards</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What people say</h2>
+    <p class="sub">⭐ 4.8 on Google from 240 reviews</p>
+    <div class="quote"><p>"Great flavor, environment was clean and the staff was super friendly."</p><small>Google review</small></div>
+    <div class="quote"><p>"The only regret about Half Rooted is I didn't get here sooner."</p><small>Google review</small></div>
+  </section>
+
+  <section id="hours">
+    <h2>Hours & location</h2>
+    <p class="sub">1419 Wade Hampton Blvd, Greenville, SC 29609</p>
+    <table id="hrs">
+      <tr data-d="1"><td>Monday</td><td>Closed</td></tr>
+      <tr data-d="2"><td>Tuesday</td><td>5 – 9 PM</td></tr>
+      <tr data-d="3"><td>Wednesday</td><td>11–2 · 5–9</td></tr>
+      <tr data-d="4"><td>Thursday</td><td>11–2 · 5–9</td></tr>
+      <tr data-d="5"><td>Friday</td><td>11–2 · 5–9</td></tr>
+      <tr data-d="6"><td>Saturday</td><td>11 AM – 9 PM</td></tr>
+      <tr data-d="0"><td>Sunday</td><td>11 AM – 6 PM</td></tr>
+    </table>
+    <iframe class="map" loading="lazy" title="Map to Half Rooted" src="https://maps.google.com/maps?q=Half+Rooted,+1419+Wade+Hampton+Blvd,+Greenville,+SC&z=15&output=embed"></iframe>
+  </section>
+
+  <section>
+    <h2>Follow the flavor</h2>
+    <p class="sub">Specials, new dishes and events, everywhere you scroll.</p>
+    <ul class="socials">
+      <li><a href="https://www.facebook.com/108414821595835" target="_blank" rel="noopener"><img src="/img/social/facebook.svg" alt="">Facebook</a></li>
+      <li><a href="https://www.instagram.com/halfrooted" target="_blank" rel="noopener"><img src="/img/social/instagram.svg" alt="">Instagram</a></li>
+      <li><a href="#"><img src="/img/social/tiktok.svg" alt="">TikTok</a></li>
+      <li><a href="#"><img src="/img/social/x.svg" alt="">X</a></li>
+      <li><a href="#"><img src="/img/social/youtube.svg" alt="">YouTube</a></li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Half+Rooted+Greenville+SC" target="_blank" rel="noopener"><img src="/img/social/google.svg" alt="">Google</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © Half Rooted · Greenville, SC · Latino-owned · LGBTQ+ friendly<br>
+    Sample website by <a href="https://kjthegenie.mooo.com" style="color:var(--green)">KJ the Genie</a> · Your wish is my build.
+  </footer>
+
+  <div class="bar">
+    <a class="btn go" href="https://order.toasttab.com/online/halfrooted" target="_blank" rel="noopener">🛍️ Order</a>
+    <a class="btn green" href="tel:+18642032102">📞 Call</a>
+    <a class="btn" style="border:2px solid var(--green);color:var(--green)" href="https://www.google.com/maps/dir/?api=1&destination=1419+Wade+Hampton+Blvd+Greenville+SC+29609" target="_blank" rel="noopener">📍 Go</a>
+  </div>
+
+<script>
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.menu').forEach(m => m.classList.toggle('on', m.id === b.dataset.t));
+  }));
+  // open now: [start, end] blocks per weekday, 24h clock
+  const H = { 0: [[11, 18]], 1: [], 2: [[17, 21]], 3: [[11, 14], [17, 21]], 4: [[11, 14], [17, 21]], 5: [[11, 14], [17, 21]], 6: [[11, 21]] };
+  const n = new Date(), d = n.getDay(), h = n.getHours() + n.getMinutes() / 60;
+  const open = H[d].some(([a, b]) => h >= a && h < b);
+  document.getElementById('dot').classList.toggle('on', open);
+  document.getElementById('status').textContent = open ? 'Open now' : 'Closed now · see hours';
+  const row = document.querySelector(`#hrs tr[data-d="${d}"]`); if (row) row.classList.add('today');
+</script>
+</body>
+</html>

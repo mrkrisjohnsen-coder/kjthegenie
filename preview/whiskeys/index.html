@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Whiskey's Bar & Grill · Sample site by KJ the Genie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rye&family=Outfit:wght@400;600;800;900&display=swap">
+<style>
+  :root { --ink: #100c08; --panel: #1d1610; --line: rgba(255,255,255,.1); --whiskey: #e3962b; --neon: #39ff88; --text: #f8efe2; --mute: #c2b29c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Outfit", system-ui, sans-serif; background: var(--ink); color: var(--text); line-height: 1.5; }
+  a { color: inherit; }
+  .sample { background: #ffc83d; color: #1b0f3f; text-align: center; font-size: 13px; font-weight: 800; padding: 7px 12px; }
+  .sample a { color: #1b0f3f; }
+  nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(16,12,8,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .logo { font-family: "Rye", serif; font-size: 22px; color: var(--whiskey); }
+  .pill { padding: 9px 16px; border-radius: 999px; background: var(--whiskey); color: #1a0f03; font-weight: 800; font-size: 14px; text-decoration: none; }
+  .hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; padding: 28px 18px 34px;
+          background: linear-gradient(to top, rgba(16,12,8,1) 10%, rgba(16,12,8,.3) 55%, rgba(16,12,8,.6)), url("https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TC4O6VsPthjdURu-i_J7GsYMZX4MmBTGEYJ2K1Y0a2bbm21Ec0995DSK_ouKZeLC4jKUl9uwfqD8gTq5lNigNIm5TQmW3nb9Z2nttmq8bMCctspujFrGTrgrh_87XHoWEyeKFf6w=w1400") center/cover; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: rgba(0,0,0,.6); border: 1px solid var(--line); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #888; }
+  .dot.on { background: var(--neon); box-shadow: 0 0 10px var(--neon); }
+  h1 { font-family: "Rye", serif; font-weight: 400; font-size: clamp(38px, 10vw, 70px); line-height: 1.05; margin: 14px 0 10px; }
+  h1 span { color: var(--neon); text-shadow: 0 0 18px rgba(57,255,136,.55); }
+  .hero p { font-size: 19px; color: #f0e6d6; margin: 0 0 20px; max-width: 32ch; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { flex: 1 1 140px; text-align: center; padding: 15px 18px; border-radius: 14px; font-weight: 800; text-decoration: none; font-size: 17px; }
+  .btn.hot { background: var(--whiskey); color: #1a0f03; }
+  .btn.ghost { border: 2px solid var(--text); }
+  .btn.neon { background: var(--neon); color: #052414; }
+  section { padding: 46px 18px; max-width: 980px; margin: 0 auto; }
+  h2 { font-family: "Rye", serif; font-weight: 400; font-size: 30px; margin: 0 0 6px; color: var(--whiskey); }
+  .sub { color: var(--mute); margin: 0 0 22px; }
+  .vibes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .vibe { padding: 18px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
+  .vibe b { display: block; font-size: 30px; }
+  .vibe span { font-weight: 800; }
+  .vibe small { color: var(--mute); }
+  .specials { display: grid; gap: 10px; }
+  .day { display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); }
+  .day b { font-family: "Rye", serif; font-weight: 400; font-size: 18px; }
+  .day span { color: var(--mute); }
+  .day span em { font-style: normal; color: var(--whiskey); font-weight: 800; }
+  .day.today { border-color: var(--neon); box-shadow: 0 0 0 1px var(--neon), 0 0 22px rgba(57,255,136,.2); }
+  .day.today b::after { content: " · tonight"; font-family: "Outfit"; font-size: 12px; color: var(--neon); font-weight: 800; }
+  @media (max-width: 420px) { .day { grid-template-columns: 1fr; gap: 4px; } }
+  .fine { color: var(--mute); font-size: 13px; margin-top: 12px; }
+  .kitchen { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kitchen span { padding: 10px 16px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); font-weight: 600; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+  @media (min-width: 700px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .quote { padding: 18px; border-radius: 16px; background: var(--panel); border-left: 4px solid var(--whiskey); margin-bottom: 12px; }
+  .quote p { margin: 0 0 6px; font-size: 17px; }
+  .quote small { color: var(--mute); }
+  .map { width: 100%; height: 260px; border: 0; border-radius: 16px; margin-top: 14px; }
+  .big-hours { font-size: 22px; font-weight: 800; margin: 0; }
+  .big-hours span { color: var(--neon); }
+  .socials { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+  .socials a { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: #fff; color: #111; font-weight: 800; text-decoration: none; font-size: 15px; }
+  .socials img { width: 22px; height: 22px; }
+  footer { text-align: center; padding: 30px 18px 90px; color: var(--mute); font-size: 14px; border-top: 1px solid var(--line); }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 8px; padding: 10px; background: rgba(16,12,8,.96); border-top: 1px solid var(--line); z-index: 6; }
+  .bar a { flex: 1; text-align: center; padding: 13px 8px; border-radius: 12px; font-weight: 800; text-decoration: none; }
+  @media (min-width: 900px) { .bar { display: none; } footer { padding-bottom: 30px; } }
+</style>
+</head>
+<body>
+  <div class="sample">✨ Sample website made by <a href="https://kjthegenie.mooo.com">KJ the Genie</a> for Whiskey's. Not the official site.</div>
+
+  <nav>
+    <div class="logo">Whiskey's</div>
+    <a class="pill" href="#specials">Tonight's specials</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="badge"><span class="dot" id="dot"></span><span id="status">Checking hours…</span></span>
+      <h1>Cold drinks.<br><span>Karaoke nights.</span></h1>
+      <p>Taylors' favorite hole-in-the-wall bar & grill on Wade Hampton. Daily drink specials, wings from the kitchen and the mic is open almost every night.</p>
+      <div class="ctas">
+        <a class="btn neon" href="#specials">🍺 Today's special</a>
+        <a class="btn ghost" href="tel:+18646090811">📞 Call</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>The vibe</h2>
+    <p class="sub">Not loud, not crowded. Just good people and a bartender who knows your order.</p>
+    <div class="vibes">
+      <div class="vibe"><b>🎤</b><span>Karaoke</span><br><small>Every night but Friday</small></div>
+      <div class="vibe"><b>🍗</b><span>Wings + grill</span><br><small>Kitchen staff that feeds you right</small></div>
+      <div class="vibe"><b>🌙</b><span>Open late</span><br><small>Every day till 2 AM</small></div>
+      <div class="vibe"><b>📺</b><span>Games on TV</span><br><small>Pull up a stool</small></div>
+    </div>
+  </section>
+
+  <section id="specials">
+    <h2>Daily specials</h2>
+    <p class="sub">Something cheap and cold every night of the week.</p>
+    <div class="specials" id="days">
+      <div class="day" data-d="0"><b>Sunday</b><span><em>$20</em> Surfside bucket · <em>$2.50</em> Miller Lite · <em>$2.25</em> house vodka</span></div>
+      <div class="day" data-d="1"><b>Monday</b><span><em>$2.25</em> PBR · <em>$5</em> Rumple Minze · <em>$4.50</em> black cherry rum</span></div>
+      <div class="day" data-d="2"><b>Tuesday</b><span><em>$3.50</em> Corona · <em>$4</em> Lunazul · <em>$6</em> 1800</span></div>
+      <div class="day" data-d="3"><b>Wednesday</b><span><em>$3</em> White Claw · <em>$4</em> wines · <em>$4.50</em> SoCo</span></div>
+      <div class="day" data-d="4"><b>Thursday</b><span><em>$2.25</em> Coors Light · <em>$6.25</em> Hendrick's · <em>$4</em> Jäger / Jäger Bomb</span></div>
+      <div class="day" data-d="5"><b>Friday</b><span><em>$11.50</em> domestic bucket · <em>$6.75</em> Woodford · <em>$5.50</em> Jack Daniel's</span></div>
+      <div class="day" data-d="6"><b>Saturday</b><span><em>$11.50</em> domestic bucket · <em>$6.50</em> Liquid Marijuana · <em>$4</em> Fireball</span></div>
+    </div>
+    <p class="fine">From the specials board at the bar. Specials can change, so ask your bartender.</p>
+  </section>
+
+  <section>
+    <h2>From the grill</h2>
+    <p class="sub">Hungry? The kitchen's got you.</p>
+    <div class="kitchen"><span>🍗 Wings</span><span>🐟 Fish plates</span><span>🧅 Onion rings</span><span>🥒 Fried okra</span><span>🍔 Burgers</span><span>🍟 Fries</span></div>
+    <p class="fine">Ask for today's kitchen menu.</p>
+  </section>
+
+  <section id="feed-sec">
+    <h2>Follow along</h2>
+    <p class="sub">Tap a video to watch.</p>
+    <div id="feed"></div>
+  </section>
+
+  <section>
+    <h2>Photos</h2>
+    <p class="sub">Neon, wings and a long bar.</p>
+    <div class="gallery">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TC4O6VsPthjdURu-i_J7GsYMZX4MmBTGEYJ2K1Y0a2bbm21Ec0995DSK_ouKZeLC4jKUl9uwfqD8gTq5lNigNIm5TQmW3nb9Z2nttmq8bMCctspujFrGTrgrh_87XHoWEyeKFf6w=w700" alt="The bar at Whiskey's" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Rxssfx85vHzEFJFRPuYjivxAwqKbkzYE8-RombI9xCpYyM7bEc2Nq6hYQwErVnkqnzc-WjkThk1FLCywO_xwAV8sha2to-NLyRlGt8phxxS232x5QDQrovKfwZhfTa1JRaKRyg=w700" alt="Fish plate with okra and onion rings" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLchbUiNSu3i76M4aPGnwFZaKdF3jiFd1RVuw3cK3-XB8Ny2c5Y2lUP5z7x85WNAelWYjvndOxwes4JSmZ7b-0bP39OFS-RCU519kzhPcV7DrHioPGVuyrAqGkqEikICAzYrLOg7Jw=w700" alt="Wings" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Ty2mfPFL_LMyNUMKDYGUtLWs_AoNt3mnmLoK-FAWAdtUz1n-7Kcdb4LGNGMJcUPai6TECQEivWemFasOWEHC-u1ibOXcnke6mP4pphxrV_53SyAxzD93jpKDyCH3DGNMbn9p-lSA=w700" alt="Bar stools" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R3w2svpmnpwbZ54KDtdZfRuzsHpm2PBCJdZZN-32qfToAMw_N1_pjWqcX9JULon5G2E6mJkwMY8uOY8iS52Hsm6QRI_ZSJWI7rx9W3YDPCsGKhrf97MpEd8k00OgN-qP-UZyGFGANnbDCu=w700" alt="Daily specials board" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QJCKw5E65k7EepI93wTFol2mc4017N4gVdG1aMfb8Pj79IXl2B8dRyhcn26XXGyy14SiS8AOBIC0xWnDtdFH_kyvTp3p76FmObhyUXZatSE2MUuX8R1XZYSxzP8I8ebRPuZqoH=w700" alt="Neon-lit bar" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>What people say</h2>
+    <p class="sub">⭐ 4.4 on Google (296 reviews)</p>
+    <div class="quote"><p>"Great service, great food, great atmosphere."</p><small>Google review</small></div>
+    <div class="quote"><p>"Great hole in the wall bar, not a loud over crowd place."</p><small>Google review</small></div>
+    <div class="quote"><p>"Nice people, good drinks and great food!!!"</p><small>Google review</small></div>
+  </section>
+
+  <section id="hours">
+    <h2>Hours & location</h2>
+    <p class="big-hours">Open every day <span>11 AM – 2 AM</span></p>
+    <p class="sub" style="margin-top:6px">3069 Wade Hampton Blvd, Taylors, SC 29687 · (864) 609-0811</p>
+    <iframe class="map" loading="lazy" title="Map to Whiskey's" src="https://maps.google.com/maps?q=Whiskeys,+3069+Wade+Hampton+Blvd,+Taylors,+SC&z=15&output=embed"></iframe>
+  </section>
+
+  <section>
+    <h2>Find us everywhere</h2>
+    <p class="sub">Karaoke nights, specials and game days, wherever you scroll.</p>
+    <ul class="socials">
+      <li><a href="http://www.facebook.com/WHISKEYSNITELIFE" target="_blank" rel="noopener"><img src="/img/social/facebook.svg" alt="">Facebook</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/instagram.svg" alt="">Instagram</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/tiktok.svg" alt="">TikTok</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/youtube.svg" alt="">YouTube</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/x.svg" alt="">X</a></li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Whiskeys+3069+Wade+Hampton+Blvd+Taylors+SC" target="_blank" rel="noopener"><img src="/img/social/googlemaps.svg" alt="">Google Maps</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © Whiskey's · Taylors, SC · Please drink responsibly. 21+<br>
+    Sample website by <a href="https://kjthegenie.mooo.com" style="color:var(--whiskey)">KJ the Genie</a> · Your wish is my build.
+  </footer>
+
+  <div class="bar">
+    <a class="btn neon" href="#specials">🍺 Specials</a>
+    <a class="btn hot" href="tel:+18646090811">📞 Call</a>
+    <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=3069+Wade+Hampton+Blvd+Taylors+SC+29687" target="_blank" rel="noopener">📍 Go</a>
+  </div>
+
+<script src="/preview/feed.js"></script>
+<script>
+  // open now badge: every day 11 AM to 2 AM (the late hours belong to the night before)
+  const now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes() / 60;
+  const open = h >= 11 || h < 2;
+  document.getElementById('dot').classList.toggle('on', open);
+  document.getElementById('status').textContent = open ? 'Open now · till 2 AM' : 'Opens at 11 AM';
+  // tonight's special: after midnight it's still the night before
+  const night = h < 2 ? (d + 6) % 7 : d;
+  const today = document.querySelector(`#days .day[data-d="${night}"]`);
+  if (today) { today.classList.add('today'); document.getElementById('days').prepend(today); }
+  // sample social feed
+  const P = path => 'https://lh3.googleusercontent.com/' + path + '=w900';
+  KJFeed.mount(document.getElementById('feed'), {
+    handle: 'whiskeysnitelife', name: "Whiskey's", accent: '#39ff88',
+    avatar: P('gps-cs-s/ANWiy9TC4O6VsPthjdURu-i_J7GsYMZX4MmBTGEYJ2K1Y0a2bbm21Ec0995DSK_ouKZeLC4jKUl9uwfqD8gTq5lNigNIm5TQmW3nb9Z2nttmq8bMCctspujFrGTrgrh_87XHoWEyeKFf6w'),
+    clips: [
+      { net: 'tiktok', title: 'Karaoke tonight 🎤', img: P('gps-cs-s/ANWiy9TC4O6VsPthjdURu-i_J7GsYMZX4MmBTGEYJ2K1Y0a2bbm21Ec0995DSK_ouKZeLC4jKUl9uwfqD8gTq5lNigNIm5TQmW3nb9Z2nttmq8bMCctspujFrGTrgrh_87XHoWEyeKFf6w'),
+        lines: ['Karaoke every night but Friday 🎤', 'Whiskey’s · Taylors'], caption: 'Who’s singing first? Mic is open tonight. #karaoke #taylorssc #greenvillesc #barlife' },
+      { net: 'reels', title: 'Wings that hit different', img: P('grass-cs/AABkmLchbUiNSu3i76M4aPGnwFZaKdF3jiFd1RVuw3cK3-XB8Ny2c5Y2lUP5z7x85WNAelWYjvndOxwes4JSmZ7b-0bP39OFS-RCU519kzhPcV7DrHioPGVuyrAqGkqEikICAzYrLOg7Jw'),
+        lines: ['Wings that hit different 🔥', 'Kitchen open late'], caption: 'Come for a drink, stay for the wings. #wings #wingnight #sceats' },
+      { net: 'shorts', title: 'Daily specials board', img: P('gps-cs-s/ANWiy9R3w2svpmnpwbZ54KDtdZfRuzsHpm2PBCJdZZN-32qfToAMw_N1_pjWqcX9JULon5G2E6mJkwMY8uOY8iS52Hsm6QRI_ZSJWI7rx9W3YDPCsGKhrf97MpEd8k00OgN-qP-UZyGFGANnbDCu'),
+        lines: ['A special every single night 🍺', '$2.25 Coors Light Thursdays'], caption: 'Save this so you know what’s cheap tonight. #drinkspecials #happyhour' },
+      { net: 'tiktok', title: 'Fish plate check', img: P('gps-cs-s/ANWiy9Rxssfx85vHzEFJFRPuYjivxAwqKbkzYE8-RombI9xCpYyM7bEc2Nq6hYQwErVnkqnzc-WjkThk1FLCywO_xwAV8sha2to-NLyRlGt8phxxS232x5QDQrovKfwZhfTa1JRaKRyg'),
+        lines: ['Fish, okra, hushpuppies 😮‍💨', 'Southern comfort on a plate'], caption: 'Not your average bar food. #southernfood #friedokra #barandgrill' },
+      { net: 'reels', title: 'Open till 2 AM', img: P('gps-cs-s/ANWiy9Ty2mfPFL_LMyNUMKDYGUtLWs_AoNt3mnmLoK-FAWAdtUz1n-7Kcdb4LGNGMJcUPai6TECQEivWemFasOWEHC-u1ibOXcnke6mP4pphxrV_53SyAxzD93jpKDyCH3DGNMbn9p-lSA'),
+        lines: ['Open till 2 AM 🌙', 'Every. Single. Night.'], caption: 'Late shift? We’re still pouring. #latenight #taylorssc' },
+      { net: 'shorts', title: 'Pull up a stool', img: P('gps-cs-s/ANWiy9QJCKw5E65k7EepI93wTFol2mc4017N4gVdG1aMfb8Pj79IXl2B8dRyhcn26XXGyy14SiS8AOBIC0xWnDtdFH_kyvTp3p76FmObhyUXZatSE2MUuX8R1XZYSxzP8I8ebRPuZqoH'),
+        lines: ['Your seat is waiting 🪑', '3069 Wade Hampton Blvd'], caption: 'Good drinks, good people, no attitude. #localbar #yeahthatgreenville' }
+    ]
+  });
+</script>
+</body>
+</html>

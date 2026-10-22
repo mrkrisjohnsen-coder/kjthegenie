@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Zorba Lounge · Sample site by KJ the Genie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Outfit:wght@400;600;800;900&display=swap">
+<style>
+  :root { --ink: #071a2e; --panel: #0e2742; --line: rgba(255,255,255,.12); --sea: #2f8fd8; --gold: #f2c14e; --cream: #fbf6ec; --text: #f3f7fb; --mute: #a9bdd1; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Outfit", system-ui, sans-serif; background: var(--ink); color: var(--text); line-height: 1.5; }
+  a { color: inherit; }
+  .sample { background: #ffc83d; color: #1b0f3f; text-align: center; font-size: 13px; font-weight: 800; padding: 7px 12px; }
+  .sample a { color: #1b0f3f; }
+  nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(7,26,46,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .logo { font-family: "Abril Fatface", serif; font-size: 24px; letter-spacing: .02em; }
+  .logo span { color: var(--gold); }
+  .pill { padding: 9px 16px; border-radius: 999px; background: var(--sea); color: #fff; font-weight: 800; font-size: 14px; text-decoration: none; }
+  .hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; padding: 28px 18px 34px;
+          background: linear-gradient(to top, rgba(7,26,46,1) 10%, rgba(7,26,46,.35) 55%, rgba(7,26,46,.65)), url("https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SJqHmVUSrXyxyKEoXYqt-tsEW9qR-GiR0yv4m0DZBau9xsI5YT_iVHX_Rb09TfNhoO6bTIbPS2V9tYcVch_EfWr8YUWt1Zfq3UpldbKzJQpQRtP4Ycmx3jFH23U9zn6xOOBomkclCNOkM=w1400") center/cover; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: rgba(0,0,0,.55); border: 1px solid var(--line); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #888; }
+  .dot.on { background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
+  h1 { font-family: "Abril Fatface", serif; font-weight: 400; font-size: clamp(42px, 11vw, 76px); line-height: 1; margin: 14px 0 10px; }
+  h1 span { color: var(--gold); }
+  .hero p { font-size: 19px; color: #e6eef6; margin: 0 0 20px; max-width: 32ch; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { flex: 1 1 140px; text-align: center; padding: 15px 18px; border-radius: 14px; font-weight: 800; text-decoration: none; font-size: 17px; }
+  .btn.hot { background: var(--gold); color: #1b1405; }
+  .btn.ghost { border: 2px solid var(--text); }
+  .btn.sea { background: var(--sea); color: #fff; }
+  section { padding: 46px 18px; max-width: 980px; margin: 0 auto; }
+  h2 { font-family: "Abril Fatface", serif; font-weight: 400; font-size: 34px; margin: 0 0 6px; }
+  .sub { color: var(--mute); margin: 0 0 22px; }
+  .vibes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .vibe { padding: 18px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
+  .vibe b { display: block; font-size: 30px; }
+  .vibe span { font-weight: 800; }
+  .vibe small { color: var(--mute); }
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; overflow-x: auto; }
+  .tabs button { flex: 1 0 auto; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font: 800 15px "Outfit"; cursor: pointer; }
+  .tabs button.on { background: var(--gold); color: #1b1405; border-color: var(--gold); }
+  .menu { display: grid; gap: 10px; }
+  .menu[hidden] { display: none; }
+  .item { display: flex; justify-content: space-between; gap: 14px; padding: 14px 16px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); }
+  .item b { font-size: 17px; }
+  .item small { display: block; color: var(--mute); }
+  .item .p { color: var(--gold); font-weight: 800; font-size: 18px; white-space: nowrap; }
+  .star { color: var(--sea); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  .fine { color: var(--mute); font-size: 13px; margin-top: 12px; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+  @media (min-width: 700px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .quote { padding: 18px; border-radius: 16px; background: var(--panel); border-left: 4px solid var(--gold); margin-bottom: 12px; }
+  .quote p { margin: 0 0 6px; font-size: 17px; }
+  .quote small { color: var(--mute); }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 11px 4px; border-bottom: 1px solid var(--line); font-size: 17px; }
+  td:last-child { text-align: right; font-weight: 800; }
+  tr.today td { color: var(--gold); }
+  .map { width: 100%; height: 260px; border: 0; border-radius: 16px; margin-top: 14px; }
+  .socials { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+  .socials a { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: #fff; color: #111; font-weight: 800; text-decoration: none; font-size: 15px; }
+  .socials img { width: 22px; height: 22px; }
+  footer { text-align: center; padding: 30px 18px 90px; color: var(--mute); font-size: 14px; border-top: 1px solid var(--line); }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 8px; padding: 10px; background: rgba(7,26,46,.96); border-top: 1px solid var(--line); z-index: 6; }
+  .bar a { flex: 1; text-align: center; padding: 13px 8px; border-radius: 12px; font-weight: 800; text-decoration: none; }
+  @media (min-width: 900px) { .bar { display: none; } footer { padding-bottom: 30px; } }
+</style>
+</head>
+<body>
+  <div class="sample">✨ Sample website made by <a href="https://kjthegenie.mooo.com">KJ the Genie</a> for Zorba Lounge. Not the official site.</div>
+
+  <nav>
+    <div class="logo">Zorba <span>Lounge</span></div>
+    <a class="pill" href="tel:+18642333125">📞 Call</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="badge"><span class="dot" id="dot"></span><span id="status">Checking hours…</span></span>
+      <h1>Strong pours.<br><span>Big plates.</span></h1>
+      <p>Greenville's favorite neighborhood lounge on East Washington Street. Steak sandwiches, wings, Greek salads and the friendliest bar in Midtown.</p>
+      <div class="ctas">
+        <a class="btn hot" href="#menu">🥪 See the menu</a>
+        <a class="btn ghost" href="tel:+18642333125">📞 Order takeout</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>The vibe</h2>
+    <p class="sub">Old school, comfy and chill, even when it gets busy.</p>
+    <div class="vibes">
+      <div class="vibe"><b>🥩</b><span>Steak sandwiches</span><br><small>The one regulars order</small></div>
+      <div class="vibe"><b>🍗</b><span>Wings</span><br><small>Big and flavorful</small></div>
+      <div class="vibe"><b>🥗</b><span>Greek salads</span><br><small>Feta and Kalamata olives</small></div>
+      <div class="vibe"><b>🍻</b><span>Full bar</span><br><small>Cold beer, real cocktails</small></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>Menu</h2>
+    <p class="sub">Dine in or call ahead for takeout: (864) 233-3125</p>
+    <div class="tabs" role="tablist">
+      <button class="on" data-t="sand">🥪 Sandwiches</button><button data-t="plates">🍽️ Plates</button><button data-t="salads">🥗 Salads</button><button data-t="sides">🍟 Sides</button><button data-t="drinks">🍹 Drinks</button>
+    </div>
+    <div id="sand" class="menu">
+      <div class="item"><div><span class="star">Fan favorite</span><b>Steak Sandwich</b><small>Mayo only</small></div><div class="p">$11.50</div></div>
+      <div class="item"><div><span class="star">Fan favorite</span><b>Chicken Club</b><small>Fried or grilled, stacked high</small></div><div class="p">$8.50</div></div>
+      <div class="item"><div><b>Reuben</b><small>Grilled rye, Swiss, sauerkraut, Thousand Island</small></div><div class="p">$8.50</div></div>
+      <div class="item"><div><b>Grilled Chicken Club</b></div><div class="p">$10.50</div></div>
+      <div class="item"><div><b>Baby Club</b></div><div class="p">$9.75</div></div>
+      <div class="item"><div><b>Cheeseburger</b></div><div class="p">$5.75</div></div>
+      <div class="item"><div><b>BLT</b></div><div class="p">$6.95</div></div>
+      <div class="item"><div><b>Steak Sub</b><small>Grilled peppers, onions, mushrooms, provolone</small></div><div class="p">$12.50</div></div>
+      <div class="item"><div><b>Club Sub</b></div><div class="p">$9.75</div></div>
+    </div>
+    <div id="plates" class="menu" hidden>
+      <div class="item"><div><span class="star">Most popular</span><b>Steak Sandwich Plate</b><small>With fries and a cup salad</small></div><div class="p">$16.75</div></div>
+      <div class="item"><div><b>Rib Eye Plate</b><small>With fries and a cup salad</small></div><div class="p">$23.00</div></div>
+      <div class="item"><div><b>Chicken Finger Plate</b><small>With fries and a cup salad</small></div><div class="p">$11.25</div></div>
+      <div class="item"><div><b>Shrimp Plate</b><small>With fries and a cup salad</small></div><div class="p">$16.00</div></div>
+    </div>
+    <div id="salads" class="menu" hidden>
+      <div class="item"><div><b>Greek Salad</b><small>Feta, Kalamata olives, onions, Italian dressing</small></div><div class="p">$9.95 / $12.75</div></div>
+      <div class="item"><div><b>Chef Salad</b><small>Ham or turkey, cheese, your choice of dressing</small></div><div class="p">$9.95 / $12.75</div></div>
+      <div class="item"><div><b>Steak Salad</b></div><div class="p">$12.50</div></div>
+      <div class="item"><div><b>Grilled Chicken Salad</b></div><div class="p">$10.50</div></div>
+      <div class="item"><div><b>Finger Salad</b></div><div class="p">$9.50 / $12.75</div></div>
+    </div>
+    <div id="sides" class="menu" hidden>
+      <div class="item"><div><b>Wings (6)</b></div><div class="p">$7.75</div></div>
+      <div class="item"><div><b>Wings (12)</b></div><div class="p">$14.50</div></div>
+      <div class="item"><div><b>Chicken Fingers (4)</b></div><div class="p">$5.50</div></div>
+      <div class="item"><div><b>Cheese Sticks (6)</b></div><div class="p">$6.50</div></div>
+      <div class="item"><div><b>Large Fries</b></div><div class="p">$5.95</div></div>
+    </div>
+    <div id="drinks" class="menu" hidden>
+      <div class="item"><div><b>Domestic Beer</b><small>Bud Light, Coors Light, Mich Ultra, Yuengling and more</small></div><div class="p">$3.75</div></div>
+      <div class="item"><div><b>Imports</b><small>Corona, Heineken, Stella, Modelo</small></div><div class="p">$4.75</div></div>
+      <div class="item"><div><b>Draft Pitcher</b></div><div class="p">$11 / $13.25</div></div>
+      <div class="item"><div><b>House Wines</b></div><div class="p">$5.50</div></div>
+      <div class="item"><div><b>Long Island</b></div><div class="p">$5.75</div></div>
+      <div class="item"><div><b>Crown Royal</b></div><div class="p">$6.75</div></div>
+      <div class="item"><div><b>Sweet Tea</b><small>Free refills</small></div><div class="p">$2.00</div></div>
+    </div>
+    <p class="fine">Prices from the in-house menu and may change.</p>
+  </section>
+
+  <section id="feed-sec">
+    <h2>Follow along</h2>
+    <p class="sub">Tap a video to watch.</p>
+    <div id="feed"></div>
+  </section>
+
+  <section>
+    <h2>Photos</h2>
+    <p class="sub">Straight from the kitchen and the bar.</p>
+    <div class="gallery">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qsu4LV9bW606Eye_XwSTM_ZlTTgcUlZol58Isxqps-bOotV477eupkvf0ewC143gD4JpXLnm_WCeqkGp7elq5ND6JGQ4-U0oQCxoAMcXMrym2xEMgoF5Dlc-MezBJk84B4RkSu=w700" alt="Reuben and fries" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T1SNYHKokAeVRNM-UNTO9GRb6w1Uy3kpGvBx5MJkRyXWBs2HK1NfeScXUXFHZGHIDsKTU-ciWelqbofG3ikWVtPkbbVuZsUX-5OWqkcV3rlYXofW_zEVkbWwuQPwO-cVvXZQnKwRN4Pcji=w700" alt="Stacked sandwich" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QCFdgWrmLckZuY3ZErTUrSjIbLwXN95OE2UMWp251YZ5gIcJt4QAms07QAJ2OJrSExm1WQVTNKDxMmi8OgPKHLkjU1oPboRuMrtT5C0BmadVkmrXgmNXIulhaWza-fvWrWb50=w700" alt="Chicken fingers and fries" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T89zlEi69VkzbaW2crYd8WUm1c2f5zTX8gqzuRTn1U__S2335y5A669UbVcLaWBIhycTURM6qlSN08lnkKr3rIHrEhocfOTfxeUVWPiGYqEVlDLHiYUHjsU6uXA5bOzIbE255L=w700" alt="Chef salad" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SJqHmVUSrXyxyKEoXYqt-tsEW9qR-GiR0yv4m0DZBau9xsI5YT_iVHX_Rb09TfNhoO6bTIbPS2V9tYcVch_EfWr8YUWt1Zfq3UpldbKzJQpQRtP4Ycmx3jFH23U9zn6xOOBomkclCNOkM=w700" alt="Inside Zorba Lounge" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R0VijiXUoNJOKRak0tHzrkZuy5PC5gK2bC1vA3qrw3JHq8KpudQHOV39_Ied4nWtYJQ2ZcK1OPNHrE8WgbyOV_d4xVhqkfm7MlHDEju8Joey6jHjt6GUn3SZj8MwSxNe5AsMLxgUwslVXm=w700" alt="Fries" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>What people say</h2>
+    <p class="sub">⭐ 4.5 on Google (831 reviews)</p>
+    <div class="quote"><p>"My favorite local place... great service, drinks, food, locals and music!"</p><small>Google review</small></div>
+    <div class="quote"><p>"Our family favs are chicken club (fried or grilled), steak sandwich and wings!"</p><small>Google review</small></div>
+    <div class="quote"><p>"Burgers and fries, salads are excellent, steak sandwiches, friendly folks."</p><small>Google review</small></div>
+  </section>
+
+  <section id="hours">
+    <h2>Hours & location</h2>
+    <p class="sub">1414 E Washington St, Greenville, SC 29607</p>
+    <table id="hrs">
+      <tr data-d="1"><td>Monday</td><td>11 AM – 12 AM</td></tr>
+      <tr data-d="2"><td>Tuesday</td><td>11 AM – 12 AM</td></tr>
+      <tr data-d="3"><td>Wednesday</td><td>11 AM – 12 AM</td></tr>
+      <tr data-d="4"><td>Thursday</td><td>11 AM – 12 AM</td></tr>
+      <tr data-d="5"><td>Friday</td><td>11 AM – 12 AM</td></tr>
+      <tr data-d="6"><td>Saturday</td><td>11 AM – 12 AM</td></tr>
+      <tr data-d="0"><td>Sunday</td><td>Closed</td></tr>
+    </table>
+    <iframe class="map" loading="lazy" title="Map to Zorba Lounge" src="https://maps.google.com/maps?q=Zorba+Lounge,+1414+E+Washington+St,+Greenville,+SC&z=15&output=embed"></iframe>
+  </section>
+
+  <section>
+    <h2>Find us everywhere</h2>
+    <p class="sub">Specials, new plates and game nights, wherever you scroll.</p>
+    <ul class="socials">
+      <li><a href="https://m.facebook.com/pages/Zorba-Lounge/118853658453394" target="_blank" rel="noopener"><img src="/img/social/facebook.svg" alt="">Facebook</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/instagram.svg" alt="">Instagram</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/tiktok.svg" alt="">TikTok</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/youtube.svg" alt="">YouTube</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/x.svg" alt="">X</a></li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Zorba+Lounge+1414+E+Washington+St+Greenville+SC" target="_blank" rel="noopener"><img src="/img/social/googlemaps.svg" alt="">Google Maps</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © Zorba Lounge · Greenville, SC<br>
+    Sample website by <a href="https://kjthegenie.mooo.com" style="color:var(--gold)">KJ the Genie</a> · Your wish is my build.
+  </footer>
+
+  <div class="bar">
+    <a class="btn hot" href="#menu">🥪 Menu</a>
+    <a class="btn sea" href="tel:+18642333125">📞 Call</a>
+    <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=1414+E+Washington+St+Greenville+SC+29607" target="_blank" rel="noopener">📍 Go</a>
+  </div>
+
+<script src="/preview/feed.js"></script>
+<script>
+  // menu tabs
+  const tabs = document.querySelectorAll('.tabs button');
+  tabs.forEach(b => b.addEventListener('click', () => {
+    tabs.forEach(x => { x.classList.toggle('on', x === b); document.getElementById(x.dataset.t).hidden = x !== b; });
+  }));
+  // open now badge
+  const H = { 0: null, 1: [11, 24], 2: [11, 24], 3: [11, 24], 4: [11, 24], 5: [11, 24], 6: [11, 24] };
+  const now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes() / 60;
+  const open = H[d] && h >= H[d][0] && h < H[d][1];
+  document.getElementById('dot').classList.toggle('on', !!open);
+  document.getElementById('status').textContent = open ? 'Open now' : 'Closed now · see hours below';
+  const row = document.querySelector(`#hrs tr[data-d="${d}"]`); if (row) row.classList.add('today');
+  // sample social feed
+  const P = id => 'https://lh3.googleusercontent.com/gps-cs-s/' + id + '=w900';
+  KJFeed.mount(document.getElementById('feed'), {
+    handle: 'zorbalounge', name: 'Zorba Lounge', accent: '#f2c14e',
+    avatar: P('ANWiy9SJqHmVUSrXyxyKEoXYqt-tsEW9qR-GiR0yv4m0DZBau9xsI5YT_iVHX_Rb09TfNhoO6bTIbPS2V9tYcVch_EfWr8YUWt1Zfq3UpldbKzJQpQRtP4Ycmx3jFH23U9zn6xOOBomkclCNOkM'),
+    clips: [
+      { net: 'tiktok', title: 'Your new Midtown hangout', img: P('ANWiy9SJqHmVUSrXyxyKEoXYqt-tsEW9qR-GiR0yv4m0DZBau9xsI5YT_iVHX_Rb09TfNhoO6bTIbPS2V9tYcVch_EfWr8YUWt1Zfq3UpldbKzJQpQRtP4Ycmx3jFH23U9zn6xOOBomkclCNOkM'),
+        lines: ['POV: you found the best local bar 🍻', 'Zorba Lounge · E Washington St'], caption: 'Strong drinks, fast pours and everybody knows your name. #greenvillesc #yeahthatgreenville #localbar' },
+      { net: 'reels', title: 'The Reuben everybody orders', img: P('ANWiy9Qsu4LV9bW606Eye_XwSTM_ZlTTgcUlZol58Isxqps-bOotV477eupkvf0ewC143gD4JpXLnm_WCeqkGp7elq5ND6JGQ4-U0oQCxoAMcXMrym2xEMgoF5Dlc-MezBJk84B4RkSu'),
+        lines: ['Grilled rye. Swiss. Kraut. 🔥', 'Only $8.50'], caption: 'The Reuben that keeps the regulars coming back. Who are you bringing? #reuben #greenvilleeats' },
+      { net: 'shorts', title: 'Stacked to the ceiling', img: P('ANWiy9T1SNYHKokAeVRNM-UNTO9GRb6w1Uy3kpGvBx5MJkRyXWBs2HK1NfeScXUXFHZGHIDsKTU-ciWelqbofG3ikWVtPkbbVuZsUX-5OWqkcV3rlYXofW_zEVkbWwuQPwO-cVvXZQnKwRN4Pcji'),
+        lines: ['Can you even fit this? 😳', 'Steak Sandwich Plate $16.75'], caption: 'Fries and a cup salad come with every plate. Come hungry. #steaksandwich #sceats' },
+      { net: 'tiktok', title: 'Chicken Finger Plate', img: P('ANWiy9QCFdgWrmLckZuY3ZErTUrSjIbLwXN95OE2UMWp251YZ5gIcJt4QAms07QAJ2OJrSExm1WQVTNKDxMmi8OgPKHLkjU1oPboRuMrtT5C0BmadVkmrXgmNXIulhaWza-fvWrWb50'),
+        lines: ['Crispy chicken fingers', '$11.25 and it’s HUGE'], caption: 'Lunch is served from 11 AM. Call ahead for takeout: (864) 233-3125 #lunchspot #greenvillesc' },
+      { net: 'reels', title: 'Chef salad, done right', img: P('ANWiy9T89zlEi69VkzbaW2crYd8WUm1c2f5zTX8gqzuRTn1U__S2335y5A669UbVcLaWBIhycTURM6qlSN08lnkKr3rIHrEhocfOTfxeUVWPiGYqEVlDLHiYUHjsU6uXA5bOzIbE255L'),
+        lines: ['Not every bar does salads like this 🥗', 'Large Chef $12.75'], caption: 'Ham or turkey, cheese, and your choice of dressing. Greek salad lovers, we see you too. #saladgoals' },
+      { net: 'shorts', title: 'Come find us', img: P('ANWiy9Tdb301L8wS6Pd61WWux0jkfIbA2qunAbnMJuM9JXaHVuj6llqcYDW5Rkp2ZviT8IKLA1ex23JxuBImW7OHjJD5dm9_ANI43fPUTnQsda5Lkfidy2AHlW6T_FfcrSuK-4UlQYguhg'),
+        lines: ['1414 E Washington St 📍', 'Open 11 AM to midnight'], caption: 'Monday through Saturday. Pull up, grab a stool, stay a while. #midtowngreenville' }
+    ]
+  });
+</script>
+</body>
+</html>

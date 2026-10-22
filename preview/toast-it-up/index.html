@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Toast It Up Restaurant & Bar · Sample site by KJ the Genie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@400;600;800&display=swap">
+<style>
+  :root { --ink: #0d0b12; --panel: #17131f; --line: rgba(255,255,255,.1); --amber: #ffb22c; --fire: #ff5a1f; --neon: #ff2d87; --text: #f7f2ea; --mute: #b8b0c4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Outfit", system-ui, sans-serif; background: var(--ink); color: var(--text); line-height: 1.5; }
+  a { color: inherit; }
+  .sample { background: #ffc83d; color: #1b0f3f; text-align: center; font-size: 13px; font-weight: 800; padding: 7px 12px; }
+  .sample a { color: #1b0f3f; }
+  nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(13,11,18,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .logo { font-family: "Bungee", cursive; font-size: 20px; letter-spacing: .02em; background: linear-gradient(90deg, var(--amber), var(--fire)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .pill { padding: 9px 16px; border-radius: 999px; background: var(--fire); color: #fff; font-weight: 800; font-size: 14px; text-decoration: none; }
+  .hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; padding: 28px 18px 34px;
+          background: linear-gradient(to top, rgba(13,11,18,1) 8%, rgba(13,11,18,.35) 55%, rgba(13,11,18,.6)), url("https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RznwLBfyosF7Lg_bOPql1BxmB1qzN0AoEJ1C2YikxXXHSshl8_geeQEbqzxUXlD3KdArh9SqP3WS5YZ7ex7FOPqi83h9Bddv7lxQmPoztmzBcFE8_ZahOCel91No79ODBwth27Eqbq6K2U=w1400") center/cover; }
+  .hero .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: rgba(0,0,0,.55); border: 1px solid var(--line); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #888; }
+  .dot.on { background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
+  h1 { font-family: "Bungee", cursive; font-weight: 400; font-size: clamp(40px, 11vw, 72px); line-height: .98; margin: 14px 0 10px; }
+  h1 span { color: var(--amber); }
+  .hero p { font-size: 19px; color: #e8e0f0; margin: 0 0 20px; max-width: 30ch; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { flex: 1 1 140px; text-align: center; padding: 15px 18px; border-radius: 14px; font-weight: 800; text-decoration: none; font-size: 17px; }
+  .btn.hot { background: linear-gradient(90deg, var(--amber), var(--fire)); color: #1a0d05; }
+  .btn.ghost { border: 2px solid var(--text); }
+  section { padding: 46px 18px; max-width: 980px; margin: 0 auto; }
+  h2 { font-family: "Bungee", cursive; font-weight: 400; font-size: 30px; margin: 0 0 6px; }
+  .sub { color: var(--mute); margin: 0 0 22px; }
+  .vibes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .vibe { padding: 18px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
+  .vibe b { display: block; font-size: 30px; }
+  .vibe span { font-weight: 800; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+  .tabs button { flex: 1; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font: 800 16px "Outfit"; }
+  .tabs button.on { background: var(--amber); color: #1a0d05; border-color: var(--amber); }
+  .menu { display: grid; gap: 10px; }
+  .item { display: flex; justify-content: space-between; gap: 14px; padding: 14px 16px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); }
+  .item b { font-size: 17px; }
+  .item small { display: block; color: var(--mute); }
+  .item .p { color: var(--amber); font-weight: 800; font-size: 18px; white-space: nowrap; }
+  .star { color: var(--neon); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  .drinks { display: flex; flex-wrap: wrap; gap: 8px; }
+  .drinks span { padding: 10px 16px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); font-weight: 600; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+  @media (min-width: 700px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .quote { padding: 18px; border-radius: 16px; background: var(--panel); border-left: 4px solid var(--amber); margin-bottom: 12px; }
+  .quote p { margin: 0 0 6px; font-size: 17px; }
+  .quote small { color: var(--mute); }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 11px 4px; border-bottom: 1px solid var(--line); font-size: 17px; }
+  td:last-child { text-align: right; font-weight: 800; }
+  tr.today td { color: var(--amber); }
+  .map { width: 100%; height: 260px; border: 0; border-radius: 16px; margin-top: 14px; filter: grayscale(.2) contrast(1.05); }
+  .socials { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
+  .socials a { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: #fff; color: #111; font-weight: 800; text-decoration: none; font-size: 15px; }
+  .socials img { width: 22px; height: 22px; }
+  footer { text-align: center; padding: 30px 18px 90px; color: var(--mute); font-size: 14px; border-top: 1px solid var(--line); }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 8px; padding: 10px; background: rgba(13,11,18,.96); border-top: 1px solid var(--line); z-index: 6; }
+  .bar a { flex: 1; text-align: center; padding: 13px; border-radius: 12px; font-weight: 800; text-decoration: none; }
+  @media (min-width: 900px) { .bar { display: none; } footer { padding-bottom: 30px; } }
+</style>
+</head>
+<body>
+  <div class="sample">✨ Sample website made by <a href="https://kjthegenie.mooo.com">KJ the Genie</a> for Toast It Up. Not the official site.</div>
+
+  <nav>
+    <div class="logo">TOAST IT UP</div>
+    <a class="pill" href="#menu">Menu</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="badge"><span class="dot" id="dot"></span><span id="status">Checking hours…</span></span>
+      <h1>Wings. Pool.<br><span>Good times.</span></h1>
+      <p>Taylors' neighborhood restaurant & bar. Famous Etta's wings, cold drinks, pool tables and karaoke nights on Wade Hampton.</p>
+      <div class="ctas">
+        <a class="btn hot" href="#menu">🍗 See the menu</a>
+        <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=3606+Wade+Hampton+Blvd+B+Taylors+SC+29687" target="_blank" rel="noopener">📍 Directions</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>The vibe</h2>
+    <p class="sub">Come for the wings, stay for the night.</p>
+    <div class="vibes">
+      <div class="vibe"><b>🍗</b><span>Etta's wings</span><br><small style="color:var(--mute)">The one everybody talks about</small></div>
+      <div class="vibe"><b>🎱</b><span>Pool tables</span><br><small style="color:var(--mute)">Rack 'em up</small></div>
+      <div class="vibe"><b>🎤</b><span>Karaoke + DJ nights</span><br><small style="color:var(--mute)">Sing it or dance it</small></div>
+      <div class="vibe"><b>📺</b><span>Games on TV</span><br><small style="color:var(--mute)">Catch every big game</small></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>Menu</h2>
+    <p class="sub">Dine in or take it to go. $10–20 per person.</p>
+    <div class="tabs"><button class="on" data-t="food">🍔 Food</button><button data-t="drinks">🍹 Drinks</button></div>
+    <div id="food" class="menu">
+      <div class="item"><div><span class="star">Fan favorite</span><b>6 Pc. Chicken Wing Combo</b><small>Wings and fries</small></div><div class="p">$13</div></div>
+      <div class="item"><div><b>6 Pc. Chicken Wings</b></div><div class="p">$8</div></div>
+      <div class="item"><div><b>2 Pc. Fried Fish Combo</b><small>Fried whiting and fries</small></div><div class="p">Ask</div></div>
+      <div class="item"><div><b>2 Pc. Fish Sandwich</b></div><div class="p">$10</div></div>
+      <div class="item"><div><b>4 Pc. Chicken Tender Combo</b><small>Tenders and fries</small></div><div class="p">$13</div></div>
+      <div class="item"><div><b>4 Pc. Chicken Tenders</b></div><div class="p">$8</div></div>
+      <div class="item"><div><b>6 Pc. Southwestern Chicken Egg Rolls</b></div><div class="p">$12</div></div>
+      <div class="item"><div><b>Sausage Dog Combo</b></div><div class="p">$10</div></div>
+      <div class="item"><div><b>Sausage Dog</b></div><div class="p">$6</div></div>
+      <div class="item"><div><b>6 Pc. Mozzarella Sticks</b></div><div class="p">$7</div></div>
+      <div class="item"><div><b>Garlic Parmesan Fries</b></div><div class="p">$5</div></div>
+      <div class="item"><div><b>Potato Wedges</b></div><div class="p">$5</div></div>
+      <div class="item"><div><b>French Fries</b></div><div class="p">$4</div></div>
+    </div>
+    <div id="drinks" class="drinks" hidden>
+      <span>🍺 Beer</span><span>🥃 Whiskey</span><span>🌵 Tequila</span><span>🍸 Vodka</span><span>🥂 Cognac</span><span>🏝️ Rum</span><span>🌿 Gin</span><span>🥤 Non-alcoholic</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Photos</h2>
+    <p class="sub">Fresh out the kitchen.</p>
+    <div class="gallery">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RznwLBfyosF7Lg_bOPql1BxmB1qzN0AoEJ1C2YikxXXHSshl8_geeQEbqzxUXlD3KdArh9SqP3WS5YZ7ex7FOPqi83h9Bddv7lxQmPoztmzBcFE8_ZahOCel91No79ODBwth27Eqbq6K2U=w700" alt="Wings at Toast It Up" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S0rIYgZwbPz-0cF4YEjZxk5OW7H2mgdCHMlN-Kr6wles63deFlT6cAotjOhbMGt9LNKjODiNiwmu7VzDV4uGETasVXPH0d2ohBSQ-knA-CXas2Qoqs7V8tESctn6sh5qbeCT8R2iZmomZa=w700" alt="Inside Toast It Up" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QmfFuxvSJ5RbtkFVFxgORJm0I8FRTPbaFk04CJOKYHhVj8vcnlAvMgwUxHL7TA2R8dr1kKaln-xlxlN0vVGQEYeXBQKNJSyNgaUQkXWiFYp7JQQvud70U-u9iHqlFyHKYX71GofZ3OiYhL=w700" alt="Toast It Up photo" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QRyw2r8OeMjka7eHh9iE5pgkFjuL0T4wsi1d1QJDit90jqwKGDh0HmD8REHqkG77wS88WZ5OMKucJWAMNMkFCl3f6QJnWIrLjKlJuUU4d_p8ZSKMbkIKLGsOeUdAS0OUzsJ5Wo2CSVsi6D=w700" alt="Toast It Up photo" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R9H8WqNMz4X80KUtCED0BnRLZ1Ix3_ibOc8SqM9tL8tSTGEpzJhCmoE-4upMdyN98OqLZ_GTsAO-x8XKJi1sNqloBW6pLV67ELkltN9q5tfFFXYt6w_CzX4tCP8MDIkqA0Cbuakz_0Mbo=w700" alt="Toast It Up photo" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>What people say</h2>
+    <p class="sub">⭐ 4.7 on Google (24 reviews)</p>
+    <div class="quote"><p>"Waitresses are always friendly and the food is good, especially the Etta's wings."</p><small>Google review</small></div>
+    <div class="quote"><p>"Great place to shoot pool, and have a few drinks while watching the game on TV."</p><small>Google review</small></div>
+  </section>
+
+  <section id="hours">
+    <h2>Hours & location</h2>
+    <p class="sub">3606 Wade Hampton Blvd, Suite B, Taylors, SC 29687</p>
+    <table id="hrs">
+      <tr data-d="1"><td>Monday</td><td>5 PM – 12 AM</td></tr>
+      <tr data-d="2"><td>Tuesday</td><td>Closed</td></tr>
+      <tr data-d="3"><td>Wednesday</td><td>Closed</td></tr>
+      <tr data-d="4"><td>Thursday</td><td>5 PM – 12 AM</td></tr>
+      <tr data-d="5"><td>Friday</td><td>5 PM – 2 AM</td></tr>
+      <tr data-d="6"><td>Saturday</td><td>12 PM – 2 AM</td></tr>
+      <tr data-d="0"><td>Sunday</td><td>12 PM – 12 AM</td></tr>
+    </table>
+    <iframe class="map" loading="lazy" title="Map to Toast It Up" src="https://maps.google.com/maps?q=Toast+It+Up+Restaurant+%26+Bar,+3606+Wade+Hampton+Blvd,+Taylors,+SC&z=15&output=embed"></iframe>
+  </section>
+
+  <section>
+    <h2>Follow the fun</h2>
+    <p class="sub">Specials, karaoke nights and game days, everywhere you scroll.</p>
+    <ul class="socials">
+      <li><a href="#"><img src="/img/social/facebook.svg" alt="">Facebook</a></li>
+      <li><a href="#"><img src="/img/social/instagram.svg" alt="">Instagram</a></li>
+      <li><a href="#"><img src="/img/social/tiktok.svg" alt="">TikTok</a></li>
+      <li><a href="#"><img src="/img/social/x.svg" alt="">X</a></li>
+      <li><a href="#"><img src="/img/social/youtube.svg" alt="">YouTube</a></li>
+      <li><a href="#"><img src="/img/social/snapchat.svg" alt="">Snapchat</a></li>
+      <li><a href="#"><img src="/img/social/google.svg" alt="">Google</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © Toast It Up Restaurant & Bar · Taylors, SC<br>
+    Sample website by <a href="https://kjthegenie.mooo.com" style="color:var(--amber)">KJ the Genie</a> · Your wish is my build.
+  </footer>
+
+  <div class="bar">
+    <a class="btn hot" href="#menu">🍗 Menu</a>
+    <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=3606+Wade+Hampton+Blvd+B+Taylors+SC+29687" target="_blank" rel="noopener">📍 Directions</a>
+  </div>
+
+<script>
+  // menu tabs
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+    document.getElementById('food').hidden = b.dataset.t !== 'food';
+    document.getElementById('drinks').hidden = b.dataset.t !== 'drinks';
+  }));
+  // open now badge (hours in local time; late nights run past midnight)
+  const H = { 0: [12, 24], 1: [17, 24], 2: null, 3: null, 4: [17, 24], 5: [17, 26], 6: [12, 26] };
+  const now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes() / 60;
+  const prev = H[(d + 6) % 7];
+  let open = (H[d] && h >= H[d][0] && h < H[d][1]) || (prev && prev[1] > 24 && h < prev[1] - 24);
+  document.getElementById('dot').classList.toggle('on', !!open);
+  document.getElementById('status').textContent = open ? 'Open now' : 'Closed now · see hours below';
+  const row = document.querySelector(`#hrs tr[data-d="${d}"]`); if (row) row.classList.add('today');
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joe's Cuts · Greenville Barbershop</title>
+<style>
+  :root { --ink: #14102a; --gold: #ffc83d; --orange: #ff9f1c; --violet: #7c3aed; --blue: #3b82f6; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Segoe UI", Roboto, system-ui, sans-serif; color: var(--ink); background: #fff; }
+  nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center;
+        padding: 16px 20px; background: rgba(20,16,42,.96); color: var(--gold); font-weight: 900; letter-spacing: 1px; font-size: 20px; }
+  nav .burger { width: 26px; height: 3px; background: #fff; box-shadow: 0 8px #fff, 0 -8px #fff; border-radius: 2px; }
+  .hero { position: relative; overflow: hidden; padding: 70px 24px 80px; text-align: center; color: #fff;
+          background: linear-gradient(140deg, var(--blue), var(--violet) 60%, #c026d3); }
+  .hero::after { content: "💈"; position: absolute; right: -20px; bottom: -30px; font-size: 160px; opacity: .18; transform: rotate(-12deg); }
+  .tag { display: inline-block; padding: 6px 14px; border-radius: 99px; background: rgba(255,255,255,.18); font-size: 13px; font-weight: 700; margin-bottom: 18px; }
+  .hero h1 { font-size: 46px; line-height: 1.05; font-weight: 900; }
+  .hero p { margin: 16px auto 28px; max-width: 300px; font-size: 17px; opacity: .92; }
+  .btn { display: inline-block; padding: 16px 34px; border-radius: 99px; background: var(--gold); color: var(--ink);
+         font-weight: 900; font-size: 18px; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  .stars { margin-top: 22px; font-size: 14px; opacity: .9; }
+  section { padding: 44px 22px; }
+  h2 { font-size: 30px; font-weight: 900; text-align: center; margin-bottom: 22px; }
+  .cards { display: grid; gap: 14px; }
+  .card { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 18px; background: #f6f3ff; }
+  .card .ico { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-size: 28px; background: #fff; }
+  .card b { display: block; font-size: 17px; }
+  .card span { font-size: 14px; color: #555; }
+  .card .price { margin-left: auto; font-size: 22px; font-weight: 900; color: var(--violet); }
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .gallery div { aspect-ratio: 1; border-radius: 16px; display: grid; place-items: center; font-size: 54px; }
+  .hours { background: #14102a; color: #fff; }
+  .hours li { list-style: none; display: flex; justify-content: space-between; padding: 12px 4px; border-bottom: 1px solid rgba(255,255,255,.12); font-size: 17px; }
+  .hours li b { color: var(--gold); }
+  .hours ul { padding: 0; }
+  .open { text-align: center; margin-top: 18px; color: #86efac; font-weight: 800; }
+  .map { position: relative; height: 220px; border-radius: 20px; overflow: hidden;
+         background: repeating-linear-gradient(20deg, #dfeee0 0 40px, #fff 40px 52px), #dfeee0; }
+  .map::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(105deg, transparent 0 70px, #fff 70px 82px); }
+  .pin { position: absolute; left: 50%; top: 40%; transform: translate(-50%,-50%); font-size: 52px; }
+  .addr { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); white-space: nowrap; background: #fff; padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 14px; }
+  .review { padding: 20px; border-radius: 18px; background: #fff7e0; margin-bottom: 12px; }
+  .review p { font-size: 16px; margin: 6px 0; }
+  .review small { color: #777; }
+  .call { display: block; text-align: center; padding: 18px; border-radius: 99px; background: #22c55e; color: #fff; font-weight: 900; font-size: 20px; text-decoration: none; margin-bottom: 12px; }
+  .msg { display: block; text-align: center; padding: 16px; border-radius: 99px; border: 3px solid var(--violet); color: var(--violet); font-weight: 800; font-size: 18px; text-decoration: none; }
+  .social { display: flex; justify-content: center; gap: 14px; margin-top: 22px; font-size: 28px; }
+  footer { text-align: center; padding: 26px; font-size: 12px; color: #888; background: #f6f3ff; }
+</style>
+</head>
+<body>
+  <div style="background:#ffc83d;color:#14102a;text-align:center;font:800 13px system-ui,sans-serif;padding:8px">DEMO SITE by KJ the Genie · Joe's Cuts is not a real business</div>
+  <nav>JOE'S CUTS <div class="burger"></div></nav>
+  <header class="hero">
+    <div class="tag">Greenville, SC · Walk-ins welcome</div>
+    <h1>Fresh cuts,<br>no wait.</h1>
+    <p>Greenville's favorite barbershop. Book in 10 seconds.</p>
+    <a class="btn" href="#">Book now</a>
+    <div class="stars">★★★★★ Loved by locals</div>
+  </header>
+  <section>
+    <h2>Services</h2>
+    <div class="cards">
+      <div class="card"><div class="ico">✂️</div><div><b>Classic cut</b><span>30 min</span></div><div class="price">$25</div></div>
+      <div class="card"><div class="ico">🔥</div><div><b>Skin fade</b><span>45 min</span></div><div class="price">$30</div></div>
+      <div class="card"><div class="ico">🧔</div><div><b>Beard trim</b><span>20 min</span></div><div class="price">$15</div></div>
+      <div class="card"><div class="ico">👦</div><div><b>Kids cut</b><span>Under 12</span></div><div class="price">$18</div></div>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <h2>The shop</h2>
+    <div class="gallery">
+      <div style="background:linear-gradient(135deg,#fde68a,#fb923c)">💈</div>
+      <div style="background:linear-gradient(135deg,#c7d2fe,#818cf8)">💺</div>
+      <div style="background:linear-gradient(135deg,#bbf7d0,#22c55e)">✂️</div>
+      <div style="background:linear-gradient(135deg,#fbcfe8,#ec4899)">😎</div>
+    </div>
+  </section>
+  <section class="hours">
+    <h2>Hours</h2>
+    <ul>
+      <li>Mon – Fri <b>9am – 7pm</b></li>
+      <li>Saturday <b>8am – 5pm</b></li>
+      <li>Sunday <b>Closed</b></li>
+    </ul>
+    <div class="open">● Open now</div>
+  </section>
+  <section>
+    <h2>Find us</h2>
+    <div class="map"><div class="pin">📍</div><div class="addr">123 Main St, Greenville SC</div></div>
+  </section>
+  <section style="padding-top:0">
+    <h2>What people say</h2>
+    <div class="review">★★★★★<p>"Best fade in town. In and out in 30 minutes."</p><small>Sample review</small></div>
+    <div class="review">★★★★★<p>"My son actually likes getting his hair cut now."</p><small>Sample review</small></div>
+  </section>
+  <section style="padding-top:0">
+    <a class="call" href="#">📞 Call (864) 555-0123</a>
+    <a class="msg" href="#">✉️ Send a message</a>
+    <div class="social">📘 📸 🎵</div>
+  </section>
+  <footer>© Joe's Cuts · Demo site built by KJ the Genie</footer>
+</body>
+</html>

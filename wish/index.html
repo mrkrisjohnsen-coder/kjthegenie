@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make a Wish | KJ the Genie</title>
+<meta name="description" content="Tell KJ the Genie what your business needs: a website, social media accounts, videos and monthly posting. Bundle deals and founding prices. Love it or your money back.">
+<link rel="icon" href="/img/profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Outfit:wght@400;500;600;800&display=swap">
+<style>
+  :root {
+    --night: #1b0f3f; --dusk: #3a2380; --deep: #120a2c; --gold: #ffc83d; --ember: #ff9f1c;
+    --moon: #f6efff; --mist: #c9bdf0; --line: rgba(201,189,240,.22); --card: rgba(58,35,128,.38);
+    --display: "Shrikhand", "Cooper Black", Georgia, serif;
+    --body: "Outfit", "Segoe UI", Roboto, system-ui, sans-serif;
+    --magic: linear-gradient(100deg, var(--gold) 10%, var(--ember) 90%);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--body); font-size: 17px; line-height: 1.5; color: var(--moon);
+         background: radial-gradient(ellipse at 50% 0%, var(--dusk), var(--night) 45%, var(--deep)); min-height: 100vh; }
+  a { color: var(--gold); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--moon); text-decoration: none; font-weight: 800; }
+  .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+  h1 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 9vw, 64px); line-height: 1.02; margin: 16px 0 10px; }
+  .gold { background: var(--magic); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { color: var(--mist); font-size: 19px; margin: 0 0 18px; }
+  .promise { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; padding: 0; list-style: none; }
+  .promise li { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); font-size: 14px; font-weight: 600; }
+  .grow { padding: 20px; border-radius: 20px; background: var(--card); border: 1px solid var(--line); margin-bottom: 26px; }
+  .grow h2 { font-family: var(--display); font-weight: 400; font-size: 28px; margin: 0 0 6px; }
+  .grow p { margin: 0 0 10px; color: var(--mist); }
+  .grow .nets { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .grow .nets li { padding: 5px 12px; border-radius: 999px; background: rgba(255,200,61,.12); color: var(--gold); font-weight: 700; font-size: 14px; }
+  .grow b { color: var(--moon); }
+  .socials { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 14px 0 0; }
+  .socials li { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border-radius: 999px; background: #fff; color: #1b0f3f; font-weight: 700; font-size: 15px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .socials img { width: 22px; height: 22px; display: block; }
+  /* one step at a time */
+  .step { display: none; }
+  .step.on { display: block; animation: rise .25s ease-out; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .progress p { margin: 0 0 6px; font-weight: 800; color: var(--gold); }
+  .progress .bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; margin-bottom: 16px; }
+  .progress .bar span { display: block; height: 100%; width: 20%; background: var(--magic); transition: width .3s; }
+  .nav { display: flex; gap: 10px; align-items: center; }
+  .nav .btn { flex: 1; }
+  .back { flex: 0 0 auto; padding: 16px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--moon); font: 700 17px var(--body); cursor: pointer; }
+  fieldset { border: 1px solid var(--line); border-radius: 20px; padding: 18px 18px 6px; margin: 0 0 18px; background: rgba(18,10,44,.45); }
+  legend { font-family: var(--display); font-size: 22px; padding: 0 8px; color: var(--gold); }
+  label { display: block; font-weight: 600; margin: 0 0 6px; }
+  .hint { display: block; font-weight: 400; font-size: 14px; color: var(--mist); }
+  .field { margin: 0 0 16px; }
+  input[type=text], input[type=email], input[type=tel], textarea, select {
+    width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.06);
+    color: var(--moon); font: inherit; }
+  textarea { min-height: 96px; resize: vertical; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  select option { color: #111; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  @media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+  .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin: 0 0 16px; }
+  @media (max-width: 560px) { .checks { grid-template-columns: 1fr; } }
+  .checks label { font-weight: 500; display: flex; gap: 10px; align-items: center; margin: 0; }
+  .checks input { width: 20px; height: 20px; accent-color: var(--gold); }
+  .drop { border: 2px dashed var(--line); border-radius: 16px; padding: 14px; text-align: center; }
+  .drop input { width: 100%; color: var(--mist); }
+  .thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; justify-content: center; }
+  .thumbs img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 18px 22px; border: 0; border-radius: 999px;
+         background: var(--magic); color: var(--night); font: 800 20px var(--body); cursor: pointer; text-decoration: none; box-shadow: 0 14px 36px rgba(255,159,28,.3); }
+  .btn[disabled] { opacity: .6; cursor: wait; }
+  .err { color: #ffb4b4; font-weight: 600; min-height: 24px; margin: 10px 0; }
+  .small { font-size: 14px; color: var(--mist); text-align: center; margin: 12px 0 40px; }
+  .hidden { display: none; }
+  /* package picker */
+  .pkgs { display: grid; gap: 12px; margin: 0 0 16px; }
+  .pkg { display: block; position: relative; padding: 16px 16px 14px 52px; border-radius: 18px; border: 2px solid var(--line); background: var(--card); cursor: pointer; font-weight: 400; margin: 0; }
+  .pkg:has(input:checked) { border-color: var(--gold); background: rgba(255,200,61,.1); }
+  .pkg input { position: absolute; left: 16px; top: 18px; width: 22px; height: 22px; accent-color: var(--gold); margin: 0; }
+  .pkg .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .pkg b { font-size: 19px; }
+  .pkg .amt { font-family: var(--display); font-size: 26px; white-space: nowrap; }
+  .pkg .amt small { font-family: var(--body); font-size: 14px; color: var(--mist); }
+  .pkg p { margin: 4px 0 0; color: var(--mist); font-size: 15px; }
+  .pkg.addon { margin-left: 28px; border-style: dashed; }
+  .pkg.addon.off { opacity: .45; pointer-events: none; }
+  .sub-h { font-weight: 800; color: var(--gold); margin: 22px 0 10px; }
+  .deals { padding: 14px 16px; border-radius: 18px; border: 1px dashed var(--gold); background: rgba(255,200,61,.08); margin: 0 0 16px; }
+  .deals p { margin: 0 0 6px; }
+  .deals p:last-child { margin: 0; }
+  .deal-now { min-height: 24px; font-weight: 800; color: var(--gold); margin: 0 0 12px; }
+  .box h3 { margin: 18px 0 4px; text-align: left; color: var(--gold); font-size: 17px; }
+  .box .line { display: flex; justify-content: space-between; gap: 10px; text-align: left; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .box .line s { color: var(--mist); }
+  .box .save { color: var(--gold); font-weight: 800; margin: 8px 0 0; }
+  .box .monthly { margin: 14px 0 0; padding: 12px; border-radius: 14px; background: rgba(255,200,61,.1); text-align: left; font-size: 15px; }
+  .btn.ghost { background: transparent; color: var(--gold); border: 2px solid var(--gold); box-shadow: none; margin-top: 10px; font-size: 17px; padding: 14px 18px; }
+  /* payment popup */
+  .modal { position: fixed; inset: 0; background: rgba(8,4,24,.92); display: none; align-items: flex-start; justify-content: center; padding: 16px; z-index: 10; overflow-y: auto; }
+  @media (min-height: 900px) { .modal { align-items: center; } }
+  .modal.open { display: flex; }
+  .box { width: 100%; max-width: 460px; border-radius: 26px; padding: 28px 22px 22px; text-align: center;
+         background: linear-gradient(160deg, var(--dusk), var(--night)); border: 1px solid rgba(255,200,61,.6); box-shadow: 0 30px 90px rgba(0,0,0,.6); }
+  .box img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); }
+  .box h2 { font-family: var(--display); font-weight: 400; font-size: 34px; margin: 10px 0 4px; }
+  .price { font-family: var(--display); font-size: 64px; line-height: 1; margin: 10px 0 2px; }
+  .was { color: var(--mist); text-decoration: line-through; font-weight: 600; }
+  .box ul { list-style: none; padding: 0; margin: 16px 0 20px; text-align: left; }
+  .box li { padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--line); }
+  .box li::before { content: "✦"; position: absolute; left: 6px; color: var(--gold); }
+  .box .later { display: block; margin-top: 12px; color: var(--mist); font-size: 14px; background: none; border: 0; cursor: pointer; font: inherit; text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="/"><img src="/img/profile.jpg" alt="">KJ the Genie</a>
+    <a href="/">← Home</a>
+  </header>
+
+  <h1>Make a <span class="gold">wish.</span></h1>
+  <p class="lede">Website, social media, videos, all of it. Pick what your business needs, tell me about it and upload your photos. When you hit send, claim your founding price and I get to work.</p>
+  <ul class="promise">
+    <li>⚡ Website in 48 hours, guaranteed</li>
+    <li>📲 Every social account set up for you</li>
+    <li>🎬 I come film your videos</li>
+    <li>💯 Love it or your money back</li>
+  </ul>
+
+  <section class="grow">
+    <h2>🌐 Your business, <span class="gold">everywhere online</span></h2>
+    <p>Your business deserves more eyes, more clicks and more customers. I build your website, set up every account, then come to your business, film the videos and post them for you.</p>
+    <ul class="socials"><li><img src="/img/social/facebook.svg" alt="">Facebook</li><li><img src="/img/social/instagram.svg" alt="">Instagram</li><li><img src="/img/social/tiktok.svg" alt="">TikTok</li><li><img src="/img/social/x.svg" alt="">X (Twitter)</li><li><img src="/img/social/youtube.svg" alt="">YouTube</li><li><img src="/img/social/snapchat.svg" alt="">Snapchat</li><li><img src="/img/social/pinterest.svg" alt="">Pinterest</li><li><img src="/img/social/threads.svg" alt="">Threads</li><li><img src="/img/social/google.svg" alt="">Google Search</li><li><img src="/img/social/googlemaps.svg" alt="">Google Maps</li></ul>
+    <p style="margin-top:10px"><b>One genie. Every platform. More customers finding you.</b></p>
+  </section>
+
+  <!-- Netlify detects this form at deploy time; the visible form below posts with the same field names -->
+  <form name="wish" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+    <input name="bot-field"><input name="packages"><input name="dotcom"><input name="monthly"><input name="deal"><input name="name"><input name="business"><input name="phone"><input name="email">
+    <textarea name="about"></textarea><input name="features"><textarea name="features_other"></textarea>
+    <input name="style"><input name="colors"><textarea name="social"></textarea><input name="domain_status"><input name="domain">
+    <textarea name="hours_location"></textarea><textarea name="extra"></textarea>
+    <input type="file" name="logo"><input type="file" name="hero">
+    <input type="file" name="photo1"><input type="file" name="photo2"><input type="file" name="photo3"><input type="file" name="photo4">
+    <input type="file" name="photo5"><input type="file" name="photo6"><input type="file" name="photo7"><input type="file" name="photo8">
+  </form>
+
+  <form id="wish" novalidate>
+    <p class="hidden"><label>Leave this empty <input name="bot-field"></label></p>
+    <div class="progress" aria-live="polite">
+      <p id="stepnum">Step 1 of 6</p>
+      <div class="bar"><span id="bar"></span></div>
+    </div>
+
+    <fieldset class="step">
+      <legend>You</legend>
+      <div class="two">
+        <div class="field"><label for="name">Your name *</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="business">Business name *</label><input id="business" name="business" type="text" autocomplete="organization" required></div>
+        <div class="field"><label for="phone">Phone (for texts) *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+    </fieldset>
+
+    <fieldset class="step" id="pick">
+      <legend>What do you want?</legend>
+      <p style="margin:0 0 12px;color:var(--mist)">Pick one or more. Founding prices for the first 100 businesses.</p>
+      <div class="pkgs">
+        <label class="pkg"><input type="checkbox" name="pk" value="website" checked>
+          <span class="top"><b>🌐 Website</b><span class="amt gold">$99 <small><s>$150</s> one time</small></span></span>
+          <p>Your custom website, live in 48 hours. Looks great on phones, on Google Maps, tap-to-call, with a free web address to share.</p></label>
+        <label class="pkg addon" id="dom-pick"><input type="checkbox" name="dom" value="com">
+          <span class="top"><b>🔗 Add your own .com</b><span class="amt gold">+$45 <small>first year included</small></span></span>
+          <p>yourbusiness.com instead of the free address. I find it, register it in your business's name and connect it. Keeps going for $25/yr after the first year, cancel anytime.</p></label>
+        <label class="pkg"><input type="checkbox" name="pk" value="setup">
+          <span class="top"><b>📲 Presence setup</b><span class="amt gold">$149 <small><s>$199</s> one time</small></span></span>
+          <p>I create and brand your Facebook, Instagram, TikTok, YouTube, X and Google Business, connect them all, and make your first videos.</p></label>
+      </div>
+      <p class="sub-h">🎬 Genie on call (monthly)</p>
+      <div class="pkgs">
+        <label class="pkg"><input type="radio" name="mo" value="" checked>
+          <span class="top"><b>No monthly plan for now</b></span></label>
+        <label class="pkg"><input type="radio" name="mo" value="monthly">
+          <span class="top"><b>Monthly visit</b><span class="amt gold">$199<small>/mo</small></span></span>
+          <p>I come to your business once a month, film 4 short videos and post them on all your platforms.</p></label>
+        <label class="pkg"><input type="radio" name="mo" value="weekly">
+          <span class="top"><b>Weekly visit</b><span class="amt gold">$399<small>/mo</small></span></span>
+          <p>I come every week: 8 videos a month, posted everywhere, and your pages kept fresh.</p></label>
+      </div>
+      <div class="deals">
+        <p><b>🎁 Package deals</b></p>
+        <p>✦ <b>Get Found Bundle:</b> Website + Presence setup for <b class="gold">$199</b> (save $49)</p>
+        <p>✦ <b>Full Genie:</b> add a monthly plan and the bundle drops to <b class="gold">$149</b> (save $99)</p>
+        <p>✦ <b>Weekly VIP:</b> pick the weekly plan and your Presence setup is <b class="gold">FREE</b></p>
+      </div>
+      <p class="deal-now" id="deal-now" aria-live="polite"></p>
+    </fieldset>
+
+    <fieldset class="step">
+      <legend>Your wish</legend>
+      <div class="field"><label for="about">What does your business do? *<span class="hint">Who are your customers? What makes you the best?</span></label><textarea id="about" name="about" required></textarea></div>
+      <label>What should your website have?</label>
+      <div class="checks" id="features">
+        <label><input type="checkbox" value="Prices / menu"> Prices or menu</label>
+        <label><input type="checkbox" value="Booking / appointments"> Booking or appointments</label>
+        <label><input type="checkbox" value="Tap-to-call button"> Tap-to-call button</label>
+        <label><input type="checkbox" value="Contact form"> Contact form</label>
+        <label><input type="checkbox" value="Photo gallery"> Photo gallery</label>
+        <label><input type="checkbox" value="Reviews"> Reviews</label>
+        <label><input type="checkbox" value="Hours + map"> Hours and map</label>
+        <label><input type="checkbox" value="Social media links"> Social media links</label>
+      </div>
+      <div class="field"><label for="features_other">Anything else it should do?</label><textarea id="features_other" name="features_other" placeholder="Online ordering link, a specials page, a FAQ…"></textarea></div>
+      <div class="two">
+        <div class="field"><label for="style">The feel you want</label>
+          <select id="style" name="style"><option value="">Pick one</option><option>Clean and modern</option><option>Bold and loud</option><option>Fun and friendly</option><option>Elegant and classy</option><option>Down-home and local</option><option>Surprise me</option></select></div>
+        <div class="field"><label for="colors">Favorite colors</label><input id="colors" name="colors" type="text" placeholder="Black and gold, your logo colors…"></div>
+      </div>
+    </fieldset>
+
+    <fieldset class="step">
+      <legend>Get found</legend>
+      <div class="field"><label for="social">Your social media<span class="hint">Paste any accounts you already have. Don't have them? Leave it blank and I'll make them.</span></label><textarea id="social" name="social" placeholder="facebook.com/yourbusiness&#10;instagram.com/yourbusiness"></textarea></div>
+      <div class="two">
+        <div class="field"><label for="domain_status">Do you already own a web address?</label>
+          <select id="domain_status" name="domain_status"><option value="">Pick one</option><option>Yes, I have one</option><option>No</option><option>Not sure</option></select></div>
+        <div class="field"><label for="domain" id="domain-l">If yes, what is it?</label><input id="domain" name="domain" type="text" placeholder="yourbusiness.com"></div>
+      </div>
+      <div class="field"><label for="hours_location">Hours, address or the areas you serve</label><textarea id="hours_location" name="hours_location"></textarea></div>
+    </fieldset>
+
+    <fieldset class="step">
+      <legend>Your pictures</legend>
+      <div class="field"><label>Your logo <span class="hint">If you have one.</span></label><div class="drop"><input id="logo" type="file" accept="image/*"><div class="thumbs" id="logo-t"></div></div></div>
+      <div class="field"><label>Your best picture <span class="hint">This goes at the top of your site.</span></label><div class="drop"><input id="hero" type="file" accept="image/*"><div class="thumbs" id="hero-t"></div></div></div>
+      <div class="field"><label>More photos <span class="hint">Your work, your shop, your team. Up to 8.</span></label><div class="drop"><input id="photos" type="file" accept="image/*" multiple><div class="thumbs" id="photos-t"></div></div></div>
+    </fieldset>
+
+    <fieldset class="step">
+      <legend>Anything else?</legend>
+      <div class="field"><label for="extra">Your wish, in your own words</label><textarea id="extra" name="extra"></textarea></div>
+    </fieldset>
+
+    <div class="err" id="err" role="alert"></div>
+    <div class="nav">
+      <button class="back" id="back" type="button">← Back</button>
+      <button class="btn" id="next" type="button">Next →</button>
+      <button class="btn" id="send" type="submit">✨ Send my wish</button>
+    </div>
+    <p class="small">Questions? Text (864) 563-9668 · <a href="mailto:kjthegenie@gmail.com">kjthegenie@gmail.com</a></p>
+  </form>
+</div>
+
+<div class="modal" id="pay" role="dialog" aria-modal="true" aria-labelledby="pay-title">
+  <div class="box">
+    <img src="/img/genie.jpg" alt="">
+    <h2 id="pay-title">Wish <span class="gold">received!</span></h2>
+    <p style="margin:0 0 6px"><b>Good choice!</b> Your business is about to be seen by everyone, because you chose KJ the Genie to grant your wish: more customers, from all over, finding you.</p>
+    <p style="margin:0;color:var(--mist)">Claim your founding price to get started now.</p>
+    <div id="order"></div>
+    <a class="btn" id="paylink" href="#">💳 Pay and start</a>
+    <a class="btn ghost hidden" id="molink" href="#">🎬 Start my monthly plan</a>
+    <button class="later" id="later" type="button">I'll pay later</button>
+  </div>
+</div>
+
+<script src="/links.js"></script>
+<script>
+// Stripe payment links live in /links.js, one per package
+const LINK = window.KJ_LINKS || {};
+const TEXT_KJ = 'sms:+18645639668';
+const form = document.getElementById('wish'), err = document.getElementById('err'), send = document.getElementById('send');
+
+// what they picked, the deal that applies, and what they pay today
+function order() {
+  const web = document.querySelector('[name=pk][value=website]').checked;
+  const setup = document.querySelector('[name=pk][value=setup]').checked;
+  const mo = document.querySelector('[name=mo]:checked').value;
+  // the .com add-on only goes with a website
+  const dom = web && document.querySelector('[name=dom]').checked;
+  const o = { web, setup, mo, dom, lines: [], today: 0, regular: 0, deal: '', link: '' };
+  // no combined .com link yet: they pay for the package now and KJ bills the $45 separately
+  const withDom = key => { if (dom && !LINK[key + '_domain']) o.domLater = true; return LINK[dom ? key + '_domain' : key] || LINK[key]; };
+  if (web) o.lines.push(['🌐 Website', 99, 150]);
+  if (dom) o.lines.push(['🔗 Your own .com', 45, 45]);
+  if (setup) o.lines.push(['📲 Presence setup', mo === 'weekly' ? 0 : 149, 199]);
+  o.regular = o.lines.reduce((t, l) => t + l[2], 0);
+  o.today = o.lines.reduce((t, l) => t + l[1], 0);
+  const plusDom = dom ? 45 : 0;
+  if (mo === 'weekly' && setup) { o.deal = 'Weekly VIP: your Presence setup is FREE'; o.link = web ? withDom('website') : ''; }
+  else if (web && setup && mo) { o.deal = 'Full Genie: Website + Presence setup for $149'; o.today = 149 + plusDom; o.link = withDom('full'); }
+  else if (web && setup) { o.deal = 'Get Found Bundle: Website + Presence setup for $199'; o.today = 199 + plusDom; o.link = withDom('bundle'); }
+  else o.link = web ? withDom('website') : setup ? LINK.setup : '';
+  if (o.domLater) { o.today -= 45; o.lines.find(l => l[0].includes('.com'))[1] = '$45 billed later'; }
+  o.monthly = mo === 'monthly' ? ['Monthly visit', 199, LINK.monthly] : mo === 'weekly' ? ['Weekly visit', 399, LINK.weekly] : null;
+  return o;
+}
+function dealNote() {
+  const o = order();
+  document.getElementById('deal-now').textContent = o.deal ? '🎉 Deal unlocked! ' + o.deal : '';
+  document.getElementById('dom-pick').classList.toggle('off', !o.web);
+  document.getElementById('domain-l').textContent = o.dom ? 'The .com you want (give me 2 or 3 ideas)' : 'If yes, what is it?';
+}
+document.querySelectorAll('[name=pk], [name=mo], [name=dom]').forEach(i => i.addEventListener('change', dealNote));
+// homepage "Pick this" buttons send ?pick=website|setup|monthly|weekly
+const pick = new URLSearchParams(location.search).get('pick');
+if (pick === 'setup') { document.querySelector('[name=pk][value=website]').checked = false; document.querySelector('[name=pk][value=setup]').checked = true; }
+if (pick === 'monthly' || pick === 'weekly') document.querySelector(`[name=mo][value=${pick}]`).checked = true;
+dealNote();
+const withEmail = (url, email) => url ? url + '?prefilled_email=' + encodeURIComponent(email) : TEXT_KJ;
+function fillPay(email) {
+  const o = order();
+  let h = '<h3>Your order</h3>' + o.lines.map(l => `<div class="line"><span>${l[0]}</span><span>${typeof l[1] === 'string' ? l[1] : l[1] ? '$' + l[1] : 'FREE'}${typeof l[1] === 'number' && l[2] !== l[1] ? ` <s>$${l[2]}</s>` : ''}</span></div>`).join('');
+  if (o.deal) h += `<p class="save">🎁 ${o.deal}</p>`;
+  if (o.lines.length) h += `<div class="price gold">$${o.today}</div><div class="was">today · regular price $${o.regular}</div>`;
+  if (o.domLater) h += '<div class="monthly">🔗 <b>Your .com ($45)</b> is billed separately once I confirm your name is available, so you only pay for a name you can actually get.</div>';
+  if (o.dom) h += '<div class="monthly">🔗 <b>Your .com:</b> first year included. It renews for $25/yr starting next year, so it never goes dark. Cancel anytime. If the name you want is taken, we pick another together or you get the $45 back.</div>';
+  if (o.monthly) h += `<div class="monthly">🎬 <b>${o.monthly[0]}: $${o.monthly[1]}/mo.</b> I come to your business, film your videos and post them everywhere. Cancel anytime.</div>`;
+  h += '<h3>Everything included</h3><ul>' +
+    '<li>A call with KJ to plan it all</li>' +
+    (o.web ? '<li>Custom website, made for your business and every phone</li><li>Contact form, tap-to-call, Google Maps and Search</li>' + (o.dom ? '<li>Your own .com, registered in your business\'s name</li>' : '<li>A free web address to share</li>') + '<li><b>Your website within 48 hours</b> of payment, guaranteed, or your money back</li>' : '') +
+    (o.setup ? '<li>Facebook, Instagram, TikTok, YouTube, X and Google Business created and branded</li><li>All your accounts connected to each other' + (o.web ? ' and your website' : '') + '</li><li>Your first videos, made for you</li>' : '') +
+    (o.monthly ? '<li>Videos filmed at your business and posted on every platform, every ' + (o.mo === 'weekly' ? 'week' : 'month') + '</li>' : '') +
+    '<li>Help anytime: just text KJ</li><li><b>Don\'t love it?</b> Full refund, no hassle</li></ul>';
+  document.getElementById('order').innerHTML = h;
+  const pay = document.getElementById('paylink'), ml = document.getElementById('molink');
+  if (o.lines.length && (o.today || !o.monthly)) {
+    pay.classList.remove('hidden');
+    pay.href = withEmail(o.link, email);
+    pay.textContent = o.link ? `💳 Pay $${o.today} and start` : '💬 Text KJ to get started';
+  } else pay.classList.add('hidden');
+  ml.classList.toggle('hidden', !o.monthly);
+  if (o.monthly) {
+    ml.href = withEmail(o.monthly[2], email);
+    ml.textContent = `🎬 Start my ${o.monthly[0].toLowerCase()} ($${o.monthly[1]}/mo)`;
+    // nothing to pay today, so the monthly plan is the main button
+    ml.className = pay.classList.contains('hidden') ? 'btn' : 'btn ghost';
+  }
+}
+
+// shrink phone photos so the whole wish fits in one upload
+function shrink(file, max = 1600) {
+  return new Promise(resolve => {
+    if (!file || !file.type.startsWith('image/')) return resolve(null);
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const k = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      c.toBlob(b => resolve(b ? new File([b], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' }) : file), 'image/jpeg', .82);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); resolve(file); };
+    img.src = url;
+  });
+}
+function preview(input, box, limit) {
+  input.addEventListener('change', () => {
+    const t = document.getElementById(box); t.innerHTML = '';
+    [...input.files].slice(0, limit).forEach(f => { const i = document.createElement('img'); i.src = URL.createObjectURL(f); i.alt = ''; t.appendChild(i); });
+    if (input.files.length > limit) t.insertAdjacentHTML('beforeend', `<span class="hint">Only the first ${limit} will be sent.</span>`);
+  });
+}
+preview(document.getElementById('logo'), 'logo-t', 1);
+preview(document.getElementById('hero'), 'hero-t', 1);
+preview(document.getElementById('photos'), 'photos-t', 8);
+
+// step-by-step: one section at a time
+const steps = [...form.querySelectorAll('.step')], back = document.getElementById('back'), next = document.getElementById('next');
+let cur = 0, started = false;
+function show(i) {
+  cur = i; err.textContent = '';
+  steps.forEach((s, k) => s.classList.toggle('on', k === i));
+  document.getElementById('stepnum').textContent = `Step ${i + 1} of ${steps.length}: ${steps[i].querySelector('legend').textContent}`;
+  document.getElementById('bar').style.width = ((i + 1) / steps.length * 100) + '%';
+  back.style.visibility = i ? 'visible' : 'hidden';
+  next.style.display = i < steps.length - 1 ? '' : 'none';
+  send.style.display = i < steps.length - 1 ? 'none' : '';
+  if (started) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function stepOk(i) {
+  for (const el of steps[i].querySelectorAll('[required]')) {
+    if (!el.value.trim()) { err.textContent = 'Please fill in: ' + el.previousElementSibling.textContent.replace('*', '').split('\n')[0].trim(); el.focus(); return false; }
+  }
+  if (steps[i].id === 'pick' && !order().lines.length && !order().monthly) { err.textContent = 'Pick at least one thing you want.'; return false; }
+  const em = steps[i].querySelector('#email');
+  if (em && !/^\S+@\S+\.\S+$/.test(em.value.trim())) { err.textContent = 'Please check your email address.'; em.focus(); return false; }
+  return true;
+}
+next.addEventListener('click', () => { if (stepOk(cur)) show(cur + 1); });
+back.addEventListener('click', () => show(cur - 1));
+show(0); started = true;
+window.scrollTo(0, 0);
+
+form.addEventListener('submit', async e => {
+  e.preventDefault(); err.textContent = '';
+  if (cur < steps.length - 1) { if (stepOk(cur)) show(cur + 1); return; }
+  for (const id of ['name', 'business', 'phone', 'email', 'about']) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { err.textContent = 'Please fill in: ' + el.previousElementSibling.textContent.replace('*', '').split('\n')[0].trim(); el.focus(); return; }
+  }
+  if (!/^\S+@\S+\.\S+$/.test(document.getElementById('email').value.trim())) { err.textContent = 'Please check your email address.'; return; }
+  send.disabled = true; send.textContent = 'Sending your wish… 🧞';
+  try {
+    const fd = new FormData();
+    fd.append('form-name', 'wish');
+    for (const el of form.querySelectorAll('input[name], textarea[name], select[name]')) fd.append(el.name, el.value);
+    fd.append('features', [...document.querySelectorAll('#features input:checked')].map(c => c.value).join(', '));
+    const o = order();
+    fd.append('packages', o.lines.map(l => l[0].replace(/^\S+ /, '')).join(', ') + (o.lines.length ? ` ($${o.today} today)` : ''));
+    fd.append('monthly', o.monthly ? `${o.monthly[0]} $${o.monthly[1]}/mo` : 'None');
+    fd.append('deal', o.deal || 'None');
+    fd.append('dotcom', o.dom ? 'Yes: $45 now, $25/yr renewal' : 'No');
+    const logo = await shrink(document.getElementById('logo').files[0], 1200); if (logo) fd.append('logo', logo);
+    const hero = await shrink(document.getElementById('hero').files[0]); if (hero) fd.append('hero', hero);
+    const photos = [...document.getElementById('photos').files].slice(0, 8);
+    for (let i = 0; i < photos.length; i++) { const p = await shrink(photos[i], 1400); if (p) fd.append('photo' + (i + 1), p); }
+    // Netlify Forms still collects wishes; on GitHub Pages post across to the Netlify copy (opaque reply, so no status check)
+    if (location.hostname.endsWith('netlify.app')) {
+      const r = await fetch('/', { method: 'POST', body: fd });
+      if (!r.ok) throw new Error('status ' + r.status);
+    } else {
+      await fetch('https://kjthegenie.netlify.app/', { method: 'POST', body: fd, mode: 'no-cors' });
+    }
+    const email = document.getElementById('email').value.trim();
+    fillPay(email);
+    document.getElementById('pay').classList.add('open');
+    send.textContent = '✅ Wish sent';
+  } catch (x) {
+    send.disabled = false; send.textContent = '✨ Send my wish';
+    err.textContent = "Your wish didn't go through. Try again, or text (864) 563-9668.";
+  }
+});
+document.getElementById('later').addEventListener('click', () => {
+  document.getElementById('pay').classList.remove('open');
+  const pay = document.getElementById('paylink'), ml = document.getElementById('molink');
+  const go = !pay.classList.contains('hidden') ? pay : ml;
+  form.innerHTML = '<fieldset><legend>Wish received!</legend><p>Thanks! I got your wish. I\'ll text you soon. Ready to start? <a href="' + go.href + '">' + go.textContent.replace(/^\S+ /, '') + '</a>. Love it or your money back.</p></fieldset>';
+});
+</script>
+</body>
+</html>
