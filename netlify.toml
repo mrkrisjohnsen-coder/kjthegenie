@@ -1,0 +1,8 @@
+# Netlify serves the same files as GitHub Pages, plus the Stripe -> Revnu webhook function.
+# Tests run on every Netlify build; a failing test stops the deploy.
+[build]
+  publish = "."
+  command = "node --test tests/"
+
+[functions]
+  directory = "netlify/functions"

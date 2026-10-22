@@ -114,6 +114,9 @@
   .box li::before { content: "✦"; position: absolute; left: 6px; color: var(--gold); }
   .box .later { display: block; margin-top: 12px; color: var(--mist); font-size: 14px; background: none; border: 0; cursor: pointer; font: inherit; text-decoration: underline; }
 </style>
+<!-- Revnu measurement (Google Ads). No consent manager on this site, so Google ad choices are reported as unknown. -->
+<script src="https://revnu.com/v1.js" data-site="rk_ec06b81e503d4676a8ed5270a3945567" data-endpoint="https://revnu.com/api/measurement/collect" data-consent="granted"></script>
+<script>window.revnu && window.revnu.googleConsent && window.revnu.googleConsent({ adUserData: 'unknown', adPersonalization: 'unknown' });</script>
 </head>
 <body>
 <div class="wrap">
@@ -311,7 +314,19 @@ const pick = new URLSearchParams(location.search).get('pick');
 if (pick === 'setup') { document.querySelector('[name=pk][value=website]').checked = false; document.querySelector('[name=pk][value=setup]').checked = true; }
 if (pick === 'monthly' || pick === 'weekly') document.querySelector(`[name=mo][value=${pick}]`).checked = true;
 dealNote();
-const withEmail = (url, email) => url ? url + '?prefilled_email=' + encodeURIComponent(email) : TEXT_KJ;
+// Stripe's client_reference_id carries Revnu's anonymous visitor id so the paid order can be joined to the ad click
+function revnuId() {
+  try {
+    const r = window.revnu;
+    const id = r && (r.anonymousId || (r.getContext && r.getContext().anonymousId));
+    return typeof id === 'string' && /^[A-Za-z0-9_-]{1,200}$/.test(id) ? id : '';
+  } catch (x) { return ''; }
+}
+const withEmail = (url, email) => {
+  if (!url) return TEXT_KJ;
+  const id = revnuId();
+  return url + '?prefilled_email=' + encodeURIComponent(email) + (id ? '&client_reference_id=' + id : '');
+};
 function fillPay(email) {
   const o = order();
   let h = '<h3>Your order</h3>' + o.lines.map(l => `<div class="line"><span>${l[0]}</span><span>${typeof l[1] === 'string' ? l[1] : l[1] ? '$' + l[1] : 'FREE'}${typeof l[1] === 'number' && l[2] !== l[1] ? ` <s>$${l[2]}</s>` : ''}</span></div>`).join('');
