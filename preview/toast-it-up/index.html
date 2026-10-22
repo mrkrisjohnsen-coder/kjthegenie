@@ -69,7 +69,7 @@
 </style>
 </head>
 <body>
-  <div class="sample">✨ Sample website made by <a href="https://kjthegenie.mooo.com">KJ the Genie</a> for Toast It Up. Not the official site.</div>
+  <div class="sample">✨ Sample website made by <a href="https://kjthegenie.netlify.app">KJ the Genie</a> for Toast It Up. Not the official site. <a href="https://kjthegenie.netlify.app/wish/"><b>Want this site? Make a wish →</b></a></div>
 
   <nav>
     <div class="logo">TOAST IT UP</div>
@@ -123,6 +123,12 @@
     </div>
   </section>
 
+  <section id="feed-sec">
+    <h2>Follow along</h2>
+    <p class="sub">Tap a video to watch.</p>
+    <div id="feed"></div>
+  </section>
+
   <section>
     <h2>Photos</h2>
     <p class="sub">Fresh out the kitchen.</p>
@@ -161,19 +167,19 @@
     <h2>Follow the fun</h2>
     <p class="sub">Specials, karaoke nights and game days, everywhere you scroll.</p>
     <ul class="socials">
-      <li><a href="#"><img src="/img/social/facebook.svg" alt="">Facebook</a></li>
-      <li><a href="#"><img src="/img/social/instagram.svg" alt="">Instagram</a></li>
-      <li><a href="#"><img src="/img/social/tiktok.svg" alt="">TikTok</a></li>
-      <li><a href="#"><img src="/img/social/x.svg" alt="">X</a></li>
-      <li><a href="#"><img src="/img/social/youtube.svg" alt="">YouTube</a></li>
-      <li><a href="#"><img src="/img/social/snapchat.svg" alt="">Snapchat</a></li>
-      <li><a href="#"><img src="/img/social/google.svg" alt="">Google</a></li>
+      <li><a href="https://www.facebook.com/search/top?q=Toast%20It%20Up%20Restaurant%20%26%20Bar%20Taylors" target="_blank" rel="noopener"><img src="/img/social/facebook.svg" alt="">Facebook</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/instagram.svg" alt="">Instagram</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/tiktok.svg" alt="">TikTok</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/youtube.svg" alt="">YouTube</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/x.svg" alt="">X</a></li>
+      <li><a href="#feed-sec"><img src="/img/social/snapchat.svg" alt="">Snapchat</a></li>
+      <li><a href="https://www.google.com/maps/search/?api=1&query=Toast+It+Up+Restaurant+%26+Bar+3606+Wade+Hampton+Blvd+Taylors+SC" target="_blank" rel="noopener"><img src="/img/social/googlemaps.svg" alt="">Google Maps</a></li>
     </ul>
   </section>
 
   <footer>
     © Toast It Up Restaurant & Bar · Taylors, SC<br>
-    Sample website by <a href="https://kjthegenie.mooo.com" style="color:var(--amber)">KJ the Genie</a> · Your wish is my build.
+    Sample website by <a href="https://kjthegenie.netlify.app" style="color:var(--amber)">KJ the Genie</a> · Your wish is my build.
   </footer>
 
   <div class="bar">
@@ -181,6 +187,7 @@
     <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=3606+Wade+Hampton+Blvd+B+Taylors+SC+29687" target="_blank" rel="noopener">📍 Directions</a>
   </div>
 
+<script src="/preview/feed.js"></script>
 <script>
   // menu tabs
   document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
@@ -196,6 +203,29 @@
   document.getElementById('dot').classList.toggle('on', !!open);
   document.getElementById('status').textContent = open ? 'Open now' : 'Closed now · see hours below';
   const row = document.querySelector(`#hrs tr[data-d="${d}"]`); if (row) row.classList.add('today');
+  // sample social feed
+  const P = id => 'https://lh3.googleusercontent.com/gps-cs-s/' + id + '=w900';
+  const WINGS = 'ANWiy9RznwLBfyosF7Lg_bOPql1BxmB1qzN0AoEJ1C2YikxXXHSshl8_geeQEbqzxUXlD3KdArh9SqP3WS5YZ7ex7FOPqi83h9Bddv7lxQmPoztmzBcFE8_ZahOCel91No79ODBwth27Eqbq6K2U';
+  const INSIDE = 'ANWiy9S0rIYgZwbPz-0cF4YEjZxk5OW7H2mgdCHMlN-Kr6wles63deFlT6cAotjOhbMGt9LNKjODiNiwmu7VzDV4uGETasVXPH0d2ohBSQ-knA-CXas2Qoqs7V8tESctn6sh5qbeCT8R2iZmomZa';
+  const PIC3 = 'ANWiy9QmfFuxvSJ5RbtkFVFxgORJm0I8FRTPbaFk04CJOKYHhVj8vcnlAvMgwUxHL7TA2R8dr1kKaln-xlxlN0vVGQEYeXBQKNJSyNgaUQkXWiFYp7JQQvud70U-u9iHqlFyHKYX71GofZ3OiYhL';
+  const PIC4 = 'ANWiy9QRyw2r8OeMjka7eHh9iE5pgkFjuL0T4wsi1d1QJDit90jqwKGDh0HmD8REHqkG77wS88WZ5OMKucJWAMNMkFCl3f6QJnWIrLjKlJuUU4d_p8ZSKMbkIKLGsOeUdAS0OUzsJ5Wo2CSVsi6D';
+  const PIC5 = 'ANWiy9R9H8WqNMz4X80KUtCED0BnRLZ1Ix3_ibOc8SqM9tL8tSTGEpzJhCmoE-4upMdyN98OqLZ_GTsAO-x8XKJi1sNqloBW6pLV67ELkltN9q5tfFFXYt6w_CzX4tCP8MDIkqA0Cbuakz_0Mbo';
+  KJFeed.mount(document.getElementById('feed'), {
+    handle: 'toastitupbar', name: 'Toast It Up', accent: '#ffb22c',
+    avatar: P(WINGS),
+    clips: [
+      { net: 'tiktok', title: "Etta's wings hit different", img: P(WINGS),
+        lines: ["POV: you finally tried Etta's wings 🍗", '6 pc combo with fries · $13'], caption: 'The wings everybody in Taylors keeps talking about. Who are you bringing? #taylorssc #wings #greenvilleeats' },
+      { net: 'reels', title: 'Rack em up', img: P(INSIDE),
+        lines: ['Pool, drinks and the game on 🎱', '3606 Wade Hampton Blvd'], caption: 'Grab a cue, grab a drink, catch the game. #poolhall #localbar #yeahthatgreenville' },
+      { net: 'shorts', title: 'Karaoke night', img: P(PIC3),
+        lines: ['Karaoke + DJ nights 🎤', 'Sing it or dance it'], caption: 'Bring your crew and your best song. Open late Friday and Saturday. #karaoke #taylorssc' },
+      { net: 'tiktok', title: 'Late night eats', img: P(PIC4),
+        lines: ['Open till 2 AM Fri & Sat 🌙', 'Fish, tenders, egg rolls'], caption: 'Hungry after midnight? We got you. #latenighteats #greenvillesc' },
+      { net: 'reels', title: 'Come find us', img: P(PIC5),
+        lines: ['3606 Wade Hampton Blvd, Suite B 📍', 'Thu–Mon from 5 PM'], caption: 'Weekends open at noon. Pull up, grab a table, stay a while. #taylorssc #localbar' }
+    ]
+  });
 </script>
 </body>
 </html>

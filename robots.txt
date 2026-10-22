@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /preview/
 
-Sitemap: https://kjthegenie.mooo.com/sitemap.xml
+Sitemap: https://kjthegenie.netlify.app/sitemap.xml
