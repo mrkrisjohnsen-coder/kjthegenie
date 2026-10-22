@@ -2,7 +2,7 @@
 # Tests run on every Netlify build; a failing test stops the deploy.
 [build]
   publish = "."
-  command = "node --test tests/"
+  command = "node --test 'tests/*.test.mjs'"
 
 [functions]
   directory = "netlify/functions"
